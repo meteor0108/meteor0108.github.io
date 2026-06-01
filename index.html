@@ -112,11 +112,23 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+          <a class="nav-link " href="/#publications" data-target="#publications"><span>Publications</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/projects/"><span>Projects</span></a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link " href="/#awards" data-target="#awards"><span>Awards &amp; Honors</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#activities" data-target="#activities"><span>Academic Activities</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#skills" data-target="#skills"><span>Skills</span></a>
         </li>
 
       </ul>
@@ -149,7 +161,7 @@
       </div>
       <div class="portrait-links">
       <br>
-      <a href="cv/CV_2025.pdf"><b>CV</b></a>
+      <a href="cv/CV_SungGukYu.pdf"><b>CV</b></a>
         | <a href="https://github.com/meteor0108"><b>Github</b></a>
         | <a href="mailto:yusungcuk@gmail.com"><b>Email</b></a>
       <br>
@@ -165,7 +177,9 @@
 
 <p>My work centers on engineering and integrating end-to-end robotic systems &mdash; from multi-sensor calibration pipelines to ROS-based software architectures for perception and mapping.</p>
 
-<p>I received my B.S. in Electronics and Control Engineering, along with a double major in Advanced Sensor Convergence Device, from <a href="https://www.hanbat.ac.kr/" target="_blank" rel="noopener">Hanbat National University</a> (Feb. 2026). During my undergraduate years, I worked as an Undergraduate Researcher at the <strong>HBNU AiR Lab</strong>, advised by Prof. Dong-Geol Choi.</p>
+<p>I am currently an M.S. student in Information and Communication Engineering at <a href="https://www.hanbat.ac.kr/" target="_blank" rel="noopener">Hanbat National University</a> (since Mar. 2026), where I work as a Graduate Researcher at the <strong>HBNU AiR Lab</strong>, advised by Prof. Dong-Geol Choi.</p>
+
+<p>I received my B.S. in Electronics and Control Engineering, along with a double major in Advanced Sensor Convergence Device, from the same university (Feb. 2026), and continued at the AiR Lab as an Undergraduate Researcher throughout my studies.</p>
 
     <div class="row">
 
@@ -184,6 +198,12 @@
       <div class="col-md-6">
         <h3>Education</h3>
         <ul class="ul-edu fa-ul">
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">MS in Information and Communication Engineering, Hanbat National University, 2026 - Present</p>
+            </div>
+          </li>
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
@@ -214,12 +234,37 @@
     <h1>Research Experience</h1>
 <ul>
 
-<li> <div style="float:left"><b>HBNU AiR Lab</b>, Daejeon, Republic of Korea</div><div style="float:right">Jan. 2025 - Feb. 2026</div> <br>
-    Undergraduate Researcher, advised by Prof. Dong-Geol Choi.<br>
+<li> <div style="float:left"><b>HBNU AiR Lab</b>, Daejeon, Republic of Korea</div><div style="float:right">Mar. 2026 - Present</div> <br>
+    Graduate Researcher (M.S. Student), advised by Prof. Dong-Geol Choi.<br>
     Engineered and integrated end-to-end robotic systems, focusing on multi-sensor calibration and ROS-based software architecture.
+</li>
+<br>
+<li> <div style="float:left"><b>HBNU AiR Lab</b>, Daejeon, Republic of Korea</div><div style="float:right">Jan. 2025 - Feb. 2026</div> <br>
+    Undergraduate Researcher, advised by Prof. Dong-Geol Choi.
 </li>
 
 </ul>
+    </div>
+</div>
+    </div>
+  </section>
+
+  <section id="publications" class="home-section wg-papers   " style="padding: 20px 0 20px 0;" >
+    <div class="container">
+
+<div class="row">
+    <div class="col-lg-12">
+      <h1>Publications</h1>
+      <p style="color:#626567;">(P: Preprint, C: Conference &amp; Journal, W: Workshop &amp; Demos,
+      &lowast;: Equal contribution, &dagger;: Equal senior role)</p>
+      <ul class="ul-papers">
+        <hr>
+        <li>
+          <div class="description">
+            <p style="color:#626567;"><em>To be updated.</em></p>
+          </div>
+        </li>
+      </ul>
     </div>
 </div>
     </div>
@@ -236,34 +281,110 @@
     <div class="row">
         <ul class="ul-papers">
         <hr>
+          <h2><b>SLAM &amp; 3D Mapping</b></h2>
 
         <li>
           <div class="description">
-            <p class="authors"><b>Multi-Sensor Calibration Pipeline</b></p>
-            <p class="venue"><span style="color:#626567">May 2025 &ndash; May 2026</span></p>
-            <p>Developed comprehensive multi-sensor calibration pipelines, encompassing intrinsics for RGB/LWIR cameras and extrinsics for Stereo and Camera-LiDAR setups.</p>
-          </div>
-        </li>
-
-        <li>
-          <div class="description">
-            <p class="authors"><b>GNSS-based Offline SLAM Pipeline</b></p>
-            <p class="venue"><span style="color:#626567">Nov 2025 &ndash; Jan 2026</span></p>
-            <p>Implemented a GNSS/LiDAR/Camera fusion-based offline SLAM system for colorized 3D point cloud generation.</p>
+            <p class="authors"><b><a href="/projects/gnss-offline-slam/">GNSS-based Offline SLAM</a></b></p>
+            <p class="venue"><span style="color:#626567">2025 &nbsp;|&nbsp; Antlab</span></p>
+            <p>GNSS/LiDAR/Camera fusion-based offline SLAM system for colorized 3D point cloud generation.</p>
             <p class="resources">
-              [ <a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a> ]
+              [ <a href="/projects/gnss-offline-slam/">details</a> /
+              <a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a> ]
             </p>
           </div>
         </li>
 
         <li>
           <div class="description">
-            <p class="authors"><b>Autonomous Driving &mdash; Team Miracle</b></p>
-            <p class="venue"><span style="color:#626567">Jan 2024 &ndash; Jan 2025</span></p>
+            <p class="authors"><b><a href="/projects/multi-robot-slam-merge/">이종 모빌리티 플랫폼 간 다중 로봇 SLAM 지도 병합 기술 개발</a></b></p>
+            <p class="venue"><span style="color:#626567">2025 &nbsp;|&nbsp; National Research Institute</span></p>
+            <p>Pre-processing algorithms and system to synchronize individual SLAM maps from UGV/UAV platforms into a single global map in real time.</p>
+            <p class="resources">[ <a href="/projects/multi-robot-slam-merge/">details</a> ]</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/lidar-terrain/">딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구용역</a></b></p>
+            <p class="venue"><span style="color:#626567">2025 &nbsp;|&nbsp; KARI</span></p>
+            <p>Deep learning-based 3D terrain generation from LiDAR data in lunar-analog environments, with VR-linked visualization.</p>
+            <p class="resources">[ <a href="/projects/lidar-terrain/">details</a> ]</p>
+          </div>
+        </li>
+
+          <hr>
+          <h2><b>Multi-Sensor Calibration &amp; Fusion</b></h2>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/multi-sensor-calibration/">Multi-Sensor Calibration Toolkit</a></b></p>
+            <p class="venue"><span style="color:#626567">2026 &nbsp;|&nbsp; Antlab</span></p>
+            <p>Comprehensive multi-sensor calibration pipelines, encompassing intrinsics for RGB/LWIR cameras and extrinsics for Stereo and Camera-LiDAR setups.</p>
+            <p class="resources">
+              [ <a href="/projects/multi-sensor-calibration/">details</a> /
+              <a href="https://github.com/meteor0108" target="_blank" rel="noopener">code</a> ]
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/low-light-panorama/">저조도 파노라마 센서팩 제작</a></b></p>
+            <p class="venue"><span style="color:#626567">2026 &nbsp;|&nbsp; Aivenautics</span></p>
+            <p>Panorama generation via stereo camera calibration with image processing specialized for low-light environments.</p>
+            <p class="resources">[ <a href="/projects/low-light-panorama/">details</a> ]</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/saemangeum-infra/">새만금 자율운송 상용차 실증지원 인프라 조성</a></b></p>
+            <p class="venue"><span style="color:#626567">2025 &nbsp;|&nbsp; KATECH</span></p>
+            <p>Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of autonomous-driving test environments.</p>
+            <p class="resources">[ <a href="/projects/saemangeum-infra/">details</a> ]</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/crane-positioning/">마그넷 포트 크레인 위치 정밀 측정 시스템 개발</a></b></p>
+            <p class="venue"><span style="color:#626567">2025 &nbsp;|&nbsp; Hyundai Steel</span></p>
+            <p>Heterogeneous-sensor precise synchronization and crane position measurement system for crane automation.</p>
+            <p class="resources">[ <a href="/projects/crane-positioning/">details</a> ]</p>
+          </div>
+        </li>
+
+          <hr>
+          <h2><b>Perception &amp; Autonomous Systems</b></h2>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/han-river-bridge-vision/">한강철교 비전센서 구축</a></b></p>
+            <p class="venue"><span style="color:#626567">2026</span></p>
+            <p>LiDAR&ndash;camera multi-sensor vision inspection system for assessing rail integrity (flatness, straightness) and joint bolt fastening.</p>
+            <p class="resources">[ <a href="/projects/han-river-bridge-vision/">details</a> ]</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/harsh-env-sensor-collection/">고신뢰성 요구 환경에서의 이종 센서 데이터 수집 시스템 개발</a></b></p>
+            <p class="venue"><span style="color:#626567">2026 &nbsp;|&nbsp; National Research Institute</span></p>
+            <p>System for acquiring harsh-environment multi-sensor data to train and validate deep learning models for robust scene understanding.</p>
+            <p class="resources">[ <a href="/projects/harsh-env-sensor-collection/">details</a> ]</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="description">
+            <p class="authors"><b><a href="/projects/autonomous-driving-miracle/">Autonomous Driving &mdash; Team Miracle</a></b></p>
+            <p class="venue"><span style="color:#626567">Jan 2024 &ndash; Jan 2025 &nbsp;|&nbsp; Hanbat National University</span></p>
             <p>Implemented PID control and the Stanley method to achieve precise autonomous path tracking.</p>
             <p class="resources">
-              [ <a href="https://github.com/meteor0108/stanleymethod_gps" target="_blank" rel="noopener">code</a> ]
-              [ <a href="https://github.com/meteor0108/PID_controller" target="_blank" rel="noopener">code</a> ]
+              [ <a href="/projects/autonomous-driving-miracle/">details</a> /
+              <a href="https://github.com/meteor0108/stanleymethod_gps" target="_blank" rel="noopener">code (Stanley)</a> /
+              <a href="https://github.com/meteor0108/PID_controller" target="_blank" rel="noopener">code (PID)</a> ]
             </p>
           </div>
         </li>
@@ -285,6 +406,38 @@
 <li><b>DSC Frontier Innovation Award</b>, Daejeon-Sejong-Chungnam (DSC) Regional Innovation Platform, 2025</li>
 <li><b>2nd Place (AI Track)</b>, 2025 SW/AI Competition, Hanbat National University, 2025</li>
 <li><b>Grand Prize (Presidential Award)</b>, 7th Hanbat MOBIE Autonomous Driving Camp, Hanbat National University, 2024</li>
+</ul>
+    </div>
+</div>
+    </div>
+  </section>
+
+
+<section id="activities" class="home-section wg-blank   " style="padding: 20px 0 20px 0;" >
+    <div class="container">
+
+<div class="row">
+    <div class="col-lg-12">
+      <h1>Academic Activities</h1>
+<ul>
+<li><em style="color:#626567">To be updated.</em></li>
+</ul>
+    </div>
+</div>
+    </div>
+  </section>
+
+
+<section id="skills" class="home-section wg-blank   " style="padding: 20px 0 20px 0;" >
+    <div class="container">
+
+<div class="row">
+    <div class="col-lg-12">
+      <h1>Technical Skills</h1>
+<ul>
+<li><b>Languages:</b> Python, C, C++</li>
+<li><b>Frameworks:</b> ROS, OpenCV, PCL</li>
+<li><b>Tools:</b> Docker, GitHub, Linux</li>
 </ul>
     </div>
 </div>
