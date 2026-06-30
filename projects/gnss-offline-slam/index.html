@@ -7,11 +7,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.7.0">
   <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="GNSS-based offline 3D reconstruction system that generates colorized 3D point clouds via precise synchronization and fusion of a camera and multiple LiDAR sensors.">
+  <meta name="description" content="Pipeline that builds colorized 3D point-cloud maps and meshes from multi-LiDAR/camera/GNSS vehicle data (LiDAR-camera colorization, VGICP, PGO, Poisson).">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   <link rel="stylesheet" href="/css/academic.css">
+  <style>
+    .home-section{animation:none}
+    .proj-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin:8px 0 4px 0; }
+    .proj-gallery figure { margin:0; }
+    .proj-gallery img { width:100%; height:200px; object-fit:contain; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in; }
+    .proj-gallery figcaption { font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4; }
+    .role-block { margin-bottom:6px; }
+    .role-block h4 { margin-bottom:6px; }
+    .meta-tag { display:inline-block; background:#eef1f6; color:#2962ff; border-radius:4px; padding:2px 10px; margin:2px 6px 2px 0; font-size:0.8rem; }
+    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; }
+    .lightbox img { max-width:94%; max-height:94%; object-fit:contain; }
+  </style>
   <title>GNSS 기반 오프라인 3D Reconstruction 개발 | SungGuk Yu</title>
 </head>
 
@@ -48,22 +60,67 @@
           <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
 
           <h1 style="margin-bottom:4px;">GNSS 기반 오프라인 3D Reconstruction 개발</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">GNSS-based Offline 3D Reconstruction</h3>
+          <h3 style="color:#626567;font-weight:400;margin-top:0;">GNSS-based Offline Colored 3D Reconstruction</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 &nbsp;|&nbsp; Antlab (㈜앤트랩) &nbsp;|&nbsp; Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025 · 주식회사 앤트랩 (ANTLAB) · Researcher</p>
+          <p style="margin:10px 0 18px 0;"><span class="meta-tag">3D Reconstruction</span> <span class="meta-tag">GNSS</span> <span class="meta-tag">Multi-LiDAR</span> <span class="meta-tag">Colorization</span> <span class="meta-tag">VGICP</span> <span class="meta-tag">PGO</span></p>
 
           <hr>
 
-          <h3>Overview</h3>
-        <p>카메라와 다중 라이다 센서를 정밀하게 동기화하고 융합하여, 색상이 입혀진 3D 포인트 클라우드를 생성하는 <strong>GNSS 기반 오프라인 Reconstruction</strong> 시스템을 개발했습니다.</p>
-        <p>GNSS의 전역 위치 정보와 다중 라이다의 정밀한 기하 정보, 카메라의 색상 정보를 결합하여 정확한 <strong>colorized 3D point cloud</strong>를 재구성합니다.</p>
+          <h3>연구 개요 · Overview</h3>
+        <p>본 연구는 다중 LiDAR(Ouster×3), 카메라(Blackfly), GNSS 센서를 탑재한 차량으로 수집한 rosbag 데이터를 입력받아, 컬러라이즈된 3D 포인트클라우드 맵과 메쉬를 생성하는 파이프라인을 구축하는 것을 목적으로 한다.</p>
+        <p>LiDAR 포인트에 카메라 색상을 투영하고 GNSS 궤적으로 글로벌 좌표계에 정합한 뒤, VGICP/PGO로 정밀도를 높이고 NKSR/Poisson으로 표면을 재구성한다. 전체 과정은 rosbag 추출·검증 → 궤적 시각화 → 컬러라이즈 → 맵 병합·메쉬화의 4단계로 모듈화되어 있다.</p>
 
-          <h3>Key Contributions</h3>
+          <h3>참여 연구 항목</h3>
           <ul>
-          <li>카메라–다중 라이다 센서 정밀 동기화 및 퓨전</li>
-          <li>색상이 입혀진 3D 포인트 클라우드 생성 및 정합</li>
-          <li>GNSS 기반 오프라인 3D Reconstruction 파이프라인 구현</li>
+          <li>LiDAR–Camera colorization</li>
+          <li>GNSS/VGICP 기반 로컬 정합</li>
+          <li>PGO 글로벌 정합</li>
+          <li>글로벌 맵 병합 및 메쉬 재구성</li>
           </ul>
+
+          <h3>My Role</h3>
+
+        <div class="role-block">
+          <h4>01. 멀티센서 캘리브레이션</h4>
+          <ul>
+            <li>Camera–LiDAR extrinsic 캘리브레이션 후 투영 오버레이로 정합 검증</li>
+            <li>3대 LiDAR 간(LiDAR–LiDAR) 외부 캘리브레이션으로 좌표계 통합</li>
+            <li>LiDAR–IMU 캘리브레이션으로 모션 보정(deskew) 기반 마련</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>02. Local 정합 (GNSS · VGICP 기반)</h4>
+          <ul>
+            <li>GNSS 항법 데이터로 초기 궤적(trajectory init) 생성</li>
+            <li>고정밀 GNSS(NovAtel CPT7)의 odometry를 초기값으로 사용해도 정밀 mapping이 가능할 것으로 판단했으나, 산간지역의 RTK 음영/오차 등으로 정확도 부족</li>
+            <li>ICP 계열 알고리즘 도입 — 단순 ICP는 sparse/noisy 환경에서 local minima에 취약해, voxel 분포 기반 VGICP를 활용하여 local 정합 수행</li>
+            <li>프레임 간 정밀 정합으로 누적 오차 최소화</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>03. Global 정합 (Pose Graph Optimization)</h4>
+          <ul>
+            <li>Pose Graph Optimization(PGO)으로 global 정합 일관성 최적화</li>
+            <li>UTM · Radius 기반 전역 맵 자동 병합으로 대규모 맵 구성</li>
+            <li>컬러라이즈 후 Poisson 표면 복원으로 메쉬 생성</li>
+            <li><strong>정량 성과</strong> — 14km × 10km 대규모 구간 컬러 3D 복원</li>
+          </ul>
+        </div>
+
+          <h3>Figures</h3>
+      <div class="proj-gallery">
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig01.png" alt="GNSS 궤적 (대규모 주행 구간, 약 14km)"><figcaption>GNSS 궤적 (대규모 주행 구간, 약 14km)</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig02.png" alt="컬러라이즈된 도로 3D 복원 결과"><figcaption>컬러라이즈된 도로 3D 복원 결과</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig03.png" alt="LiDAR 포인트클라우드 맵"><figcaption>LiDAR 포인트클라우드 맵</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig04.png" alt="컬러라이즈된 3D 포인트클라우드 맵"><figcaption>컬러라이즈된 3D 포인트클라우드 맵</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig05.png" alt="글로벌 맵 병합 결과"><figcaption>글로벌 맵 병합 결과</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig06.png" alt="Poisson 표면 복원 메쉬"><figcaption>Poisson 표면 복원 메쉬</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig07.png" alt="대규모 구간 컬러 3D 복원 (14km × 10km)"><figcaption>대규모 구간 컬러 3D 복원 (14km × 10km)</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig08.png" alt="정합 품질 리포트"><figcaption>정합 품질 리포트</figcaption></figure>
+      </div>
 
         <h3>Links</h3>
         <p class="resources">[ <a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a> ]</p>
@@ -72,6 +129,15 @@
       </div>
     </div>
   </section>
+
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
+  <script>
+    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+      im.addEventListener('click', function(){
+        var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
+      });
+    });
+  </script>
 
   <div class="container">
     <footer class="site-footer">

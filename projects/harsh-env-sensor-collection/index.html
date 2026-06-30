@@ -50,21 +50,57 @@
           <h1 style="margin-bottom:4px;">고신뢰성 요구 환경에서의 이종 센서 데이터 수집 시스템 개발</h1>
           <h3 style="color:#626567;font-weight:400;margin-top:0;">Heterogeneous Sensor Data Collection for High-Reliability Environments</h3>
 
-          <p style="color:#626567;margin-top:12px;">2026 &nbsp;|&nbsp; National Research Institute &nbsp;|&nbsp; Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2026 &nbsp;|&nbsp; ADD (국방과학연구소) &nbsp;|&nbsp; Researcher</p>
 
           <hr>
 
-          <h3>Overview</h3>
-        <p>안개·저조도·악천후 등 열악환경에서도 강인하게 동작하는 인지 알고리즘을 연구하기 위해, 딥러닝 모델의 학습과 검증에 사용할 이종 센서 데이터를 체계적으로 수집하는 시스템을 개발했습니다.</p>
-        <p>센서 융합 기반의 <strong>열악환경 장면 이해(scene understanding)</strong>와 <strong>강인성 향상</strong> 알고리즘 연구를 데이터 측면에서 뒷받침하는 것이 핵심 목표입니다.</p>
+          <p style="color:#626567;margin-top:-6px;font-size:0.92em;">연구 수행 기간 2026 &nbsp;·&nbsp; 참여 기간 2026 &nbsp;·&nbsp; 주관기관 국방과학연구소 (ADD)</p>
 
-          <h3>Key Contributions</h3>
+          <h3>Overview</h3>
+        <p>군사용 자율차량의 인식 성능 개선을 위해, 강우·강설·먼지·연막·안개 등 <strong>열악환경</strong>에서 센서 데이터를 획득하는 장비를 구축한 연구입니다. 다중 센서(3D 라이다, IR/EO 카메라, 항법장치 등)를 동기화하여 데이터를 획득·저장·재생하는 하드웨어와 ROS2 기반 소프트웨어를 구축하고, 센서 간 캘리브레이션 기능까지 포함하여 딥러닝 모델 학습·검증용 데이터를 확보하는 것을 목표로 했습니다.</p>
+        <p>센서팩은 외부에 3D 라이다(OS1-128), 내부에 EO(G5-510C)·IR(TE-EV2) 카메라와 항법장치(CPT7)를 통합하고, 차양캡과 방열판 기반 <strong>패시브 방열</strong>로 직사광·먼지·수분 환경에서도 안정적으로 동작하도록 설계했습니다.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;">
+          <figure style="flex:1 1 300px;margin:0;text-align:center;">
+            <img src="images/sensorpack.png" alt="열악환경 센서팩 설계" style="width:100%;max-width:420px;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">열악환경 센서팩 (3D LiDAR · EO/IR · 항법장치 통합)</figcaption>
+          </figure>
+          <figure style="flex:1 1 300px;margin:0;text-align:center;">
+            <img src="images/fov.png" alt="센서팩 FoV 구성" style="width:100%;max-width:460px;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">센서별 화각(FoV) 구성 — LiDAR 42.4°, LWIR 75°×60°, EO 47.3°×37.5°</figcaption>
+          </figure>
+        </div>
+
+          <h3>My Role</h3>
+          <p><b>01 · 수집 시스템 아키텍처</b></p>
           <ul>
-          <li>이종 센서를 통합한 열악환경 데이터 수집 시스템 설계 및 구축</li>
-          <li>딥러닝 학습·검증에 적합한 데이터 획득 및 동기화 파이프라인 구현</li>
-          <li>센서 융합 기반 강인성 향상 알고리즘 연구를 위한 데이터셋 확보</li>
+          <li>3D 라이다(OS1-128), EO/IR 카메라, 항법장치(CPT7)를 단일 센서팩에 통합 설계</li>
+          <li>고신뢰성 요구 환경에서 안정적인 이종 센서 데이터 수집을 위한 정밀 동기화 아키텍처 구성</li>
+          <li>주요 사양 — 3D 라이다 OS1-128(128ch), EO·IR·항법 4종 동기 수집 / 센서팩 154×224×162&thinsp;mm</li>
+          </ul>
+          <p><b>02 · 데이터 동기화</b></p>
+          <ul>
+          <li>ROS2 기반으로 다중 이종 센서의 타임스탬프 정렬 및 정밀 HW 동기화</li>
+          <li>센서 간 정밀 캘리브레이션으로 정합·정제하여 데이터 품질 확보</li>
+          <li>프레임 단위로 정합된 학습용 데이터셋 구성이 가능하도록 설계</li>
+          </ul>
+          <p><b>03 · 데이터 수집 툴킷 구축</b></p>
+          <ul>
+          <li>강우·강설·먼지·연막·안개 등 다양한 열악환경 시나리오의 데모 데이터 취득</li>
+          <li>동시 수집·저장·재생이 가능한 데이터 수집 툴킷 구축</li>
+          <li>장면 이해 모델의 학습·검증용 대규모 데이터셋 구축</li>
           </ul>
 
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;">
+          <figure style="flex:1 1 360px;margin:0;text-align:center;">
+            <img src="images/architecture.png" alt="정밀 동기화 시스템 아키텍처" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Trigger MCU 기반 다중 센서 정밀 동기화 시스템 아키텍처</figcaption>
+          </figure>
+          <figure style="flex:1 1 360px;margin:0;text-align:center;">
+            <img src="images/acquisition.png" alt="데이터 수집 툴킷" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">동시 수집·저장·재생이 가능한 데이터 수집 툴킷</figcaption>
+          </figure>
+        </div>
 
 
         </div>

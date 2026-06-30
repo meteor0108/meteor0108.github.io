@@ -7,11 +7,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.7.0">
   <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of autonomous-driving test environments.">
+  <meta name="description" content="Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of an autonomous-driving demonstration environment.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   <link rel="stylesheet" href="/css/academic.css">
+  <style>
+    .home-section{animation:none}
+    .proj-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin:8px 0 4px 0; }
+    .proj-gallery figure { margin:0; }
+    .proj-gallery img { width:100%; height:200px; object-fit:contain; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in; }
+    .proj-gallery figcaption { font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4; }
+    .role-block { margin-bottom:6px; }
+    .role-block h4 { margin-bottom:6px; }
+    .meta-tag { display:inline-block; background:#eef1f6; color:#2962ff; border-radius:4px; padding:2px 10px; margin:2px 6px 2px 0; font-size:0.8rem; }
+    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; }
+    .lightbox img { max-width:94%; max-height:94%; object-fit:contain; }
+  </style>
   <title>새만금 자율운송 상용차 실증지원 인프라 조성 | SungGuk Yu</title>
 </head>
 
@@ -48,29 +60,75 @@
           <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
 
           <h1 style="margin-bottom:4px;">새만금 자율운송 상용차 실증지원 인프라 조성</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">Saemangeum Autonomous Commercial Vehicle Test Infrastructure</h3>
+          <h3 style="color:#626567;font-weight:400;margin-top:0;">Calibration Infrastructure for Autonomous-Driving Demonstration</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 &nbsp;|&nbsp; KATECH (한국자동차연구원) &nbsp;|&nbsp; Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025 · 한국자동차연구원 (KATECH) · Researcher</p>
+          <p style="margin:10px 0 18px 0;"><span class="meta-tag">Calibration</span> <span class="meta-tag">Camera-LiDAR</span> <span class="meta-tag">LiDAR-LiDAR</span> <span class="meta-tag">Autonomous Driving</span> <span class="meta-tag">Dataset</span></p>
 
           <hr>
 
-          <h3>Overview</h3>
-        <p>새만금 지역의 자율운송 상용차 실증을 지원하기 위한 인프라 조성 사업에 참여했습니다.</p>
-        <p>자율주행 실증 환경의 <strong>안전도 평가</strong>를 위해 이종 다중 센서를 정밀하게 동기화하고 캘리브레이션하는 시스템을 구축했습니다.</p>
+          <h3>연구 개요 · Overview</h3>
+        <p>새만금 자율운송 상용차 실증 구간의 안전도 평가를 위해, 카메라/라이다 등 멀티센서 기반의 고품질 AI 학습용 라벨링 데이터셋을 구축한 연구이다. 다중센서 전처리 기술과 이종센서 융합 특징 추출 기술을 개발하여, 상용차 주행 환경에서 발생하는 다양한 동적 객체를 정밀하게 인지할 수 있는 데이터 인프라를 마련했다.</p>
 
-          <h3>Key Contributions</h3>
+          <h3>참여 연구 항목</h3>
           <ul>
-          <li>이종 다중 센서 정밀 동기화 시스템 구축</li>
-          <li>실증 환경 안전도 평가를 위한 센서 캘리브레이션 시스템 개발</li>
-          <li>자율주행 실증 인프라 통합</li>
+          <li>체커보드 기반 타겟 캘리브레이션 데이터 취득</li>
+          <li>다중센서(Camera, LiDAR) 캘리브레이션 수행</li>
+          <li>캘리브레이션 결과 및 정합 오차 검증</li>
           </ul>
 
+          <h3>My Role</h3>
+
+        <div class="role-block">
+          <h4>01. 체커보드 기반 타겟 캘리브레이션 데이터 취득</h4>
+          <ul>
+            <li>대형 화물차량에 설치된 센서 특성상 높고 넓은 화각으로 주변 환경 데이터를 취득</li>
+            <li>ChArUco 패턴판을 이용하여 캘리브레이션 타겟 인식률 향상</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>02. 다중센서(Camera, LiDAR) 캘리브레이션 수행</h4>
+          <ul>
+            <li>FAKRA 카메라 Intrinsic 캘리브레이션을 전·후·좌·우 카메라에 대해 수행</li>
+            <li>같은 방향의 Camera–LiDAR Extrinsic은 평면 기반, LiDAR–LiDAR Extrinsic은 ICP 기반으로 진행</li>
+            <li>LiDAR–LiDAR calibration 시 overlap이 충분치 않아, 가까운 센서(left-front / front-right)끼리 캘리브레이션 후 projection하여 ICP source로 사용</li>
+            <li>Camera 간 extrinsic calibration은 overlap이 존재하지 않아 타겟 기반 캘리브레이션이 불가 → overlap이 없는 환경에서는 Visual SLAM odometry 기반 캘리브레이션을 대안으로 고안</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>03. 캘리브레이션 결과 및 정합 오차 검증</h4>
+          <ul>
+            <li>모든 센서의 좌표계가 단일 좌표계로 정렬된 것을 확인</li>
+            <li><strong>정량 성과</strong> — Camera intrinsic 재투영 RMSE 0.2px 이내, Camera–LiDAR extrinsic RMSE 3mm 이내, LiDAR–LiDAR extrinsic RMSE 4mm 이내</li>
+            <li>LiDAR 포인트 클라우드의 각 포인트에 대응되는 카메라 이미지의 RGB 값을 투영하여 색상 복원으로 정합 정성 검증</li>
+          </ul>
+        </div>
+
+          <h3>Figures</h3>
+      <div class="proj-gallery">
+        <figure><img loading="lazy" src="/projects/saemangeum-infra/images/fig01.png" alt="대형 화물차량 다중 센서 배치 및 화각(FOV) 구성"><figcaption>대형 화물차량 다중 센서 배치 및 화각(FOV) 구성</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/saemangeum-infra/images/fig02.jpeg" alt="실증 차량 및 센서 장착"><figcaption>실증 차량 및 센서 장착</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/saemangeum-infra/images/fig03.jpg" alt="ChArUco / 체커보드 타겟 캘리브레이션 데이터 취득"><figcaption>ChArUco / 체커보드 타겟 캘리브레이션 데이터 취득</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/saemangeum-infra/images/fig04.png" alt="다중 센서 좌표계 정합 결과 (단일 좌표계 정렬)"><figcaption>다중 센서 좌표계 정합 결과 (단일 좌표계 정렬)</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/saemangeum-infra/images/fig05.jpg" alt="컬러 복원을 통한 정합 정성 검증"><figcaption>컬러 복원을 통한 정합 정성 검증</figcaption></figure>
+      </div>
 
 
         </div>
       </div>
     </div>
   </section>
+
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
+  <script>
+    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+      im.addEventListener('click', function(){
+        var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
+      });
+    });
+  </script>
 
   <div class="container">
     <footer class="site-footer">

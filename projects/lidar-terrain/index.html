@@ -7,12 +7,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.7.0">
   <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="Deep learning-based 3D terrain generation from LiDAR data in lunar-analog environments, with VR-linked visualization.">
+  <meta name="description" content="Real-time LiDAR-based 3D terrain generation and VR visualization for lunar-analog extreme environments, with deep-learning colorization without a camera.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
   <link rel="stylesheet" href="/css/academic.css">
-  <title>딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구용역 | SungGuk Yu</title>
+  <style>
+    .home-section{animation:none}
+    .proj-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin:8px 0 4px 0; }
+    .proj-gallery figure { margin:0; }
+    .proj-gallery img { width:100%; height:200px; object-fit:contain; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in; }
+    .proj-gallery figcaption { font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4; }
+    .role-block { margin-bottom:6px; }
+    .role-block h4 { margin-bottom:6px; }
+    .meta-tag { display:inline-block; background:#eef1f6; color:#2962ff; border-radius:4px; padding:2px 10px; margin:2px 6px 2px 0; font-size:0.8rem; }
+    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; }
+    .lightbox img { max-width:94%; max-height:94%; object-fit:contain; }
+  </style>
+  <title>딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구 | SungGuk Yu</title>
 </head>
 
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
@@ -47,30 +59,79 @@
 
           <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
 
-          <h1 style="margin-bottom:4px;">딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구용역</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">Deep Learning-based 3D Terrain Generation & Visualization from LiDAR</h3>
+          <h1 style="margin-bottom:4px;">딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구</h1>
+          <h3 style="color:#626567;font-weight:400;margin-top:0;">Deep Learning-based 3D Terrain Generation & VR Visualization</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 &nbsp;|&nbsp; KARI (한국항공우주연구원) &nbsp;|&nbsp; Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025 · 한국항공우주연구원 (KARI) · Researcher</p>
+          <p style="margin:10px 0 18px 0;"><span class="meta-tag">LiDAR</span> <span class="meta-tag">3D Terrain</span> <span class="meta-tag">Deep Learning</span> <span class="meta-tag">Colorization</span> <span class="meta-tag">Noise2Void</span> <span class="meta-tag">Embedded</span> <span class="meta-tag">VR</span></p>
 
           <hr>
 
-          <h3>Overview</h3>
-        <p>달 표면과 유사한 지구 환경에서 취득한 LiDAR 데이터를 기반으로, 딥러닝을 활용하여 3D 지형을 생성하는 연구용역을 수행했습니다.</p>
-        <p>생성된 3D 지형을 <strong>VR 장비와 연동</strong>하여 몰입감 있게 시각화하는 시스템까지 구축했습니다.</p>
+          <h3>연구 개요 · Overview</h3>
+        <p>본 연구는 달 표면 및 용암동굴과 유사한 극한 환경에서 LiDAR 기반 3D 지형을 실시간으로 생성·시각화하는 통합 파이프라인을 구축하는 것을 목적으로 한다. 이를 위해 백팩형 다중센서 시스템을 제작하고, 카메라 없이도 딥러닝 기반 컬러라이제이션으로 LiDAR 데이터의 시각 품질을 향상시켜 미래 달 탐사 및 극한환경 로봇 주행 기술에 활용하고자 하였다.</p>
+        <p>백팩형 LiDAR–카메라–IMU 센서팩으로 FAST-LIO2 Odometry와 nvblox 실시간 Mesh를 생성하고, Noise2Void로 라이다 노이즈를 제거·컬러라이즈하여 Jetson 임베디드 환경에서 실시간 3D 지형을 복원한다.</p>
 
-          <h3>Key Contributions</h3>
+          <h3>참여 연구 항목</h3>
           <ul>
-          <li>LiDAR 데이터 기반 딥러닝 3D 지형 생성 파이프라인 개발</li>
-          <li>달 유사 지형 데이터 처리 및 복원</li>
-          <li>VR 장비 연동 시각화 시스템 구축</li>
+          <li>Camera – LiDAR 캘리브레이션 데이터 취득 및 수행</li>
+          <li>LiDAR 기반 3D 지형 데이터 취득 및 처리 알고리즘 구축</li>
+          <li>임베디드 실시간 추론 최적화</li>
           </ul>
 
+          <h3>My Role</h3>
+
+        <div class="role-block">
+          <h4>01. 학습 데이터 구축을 위한 센서 캘리브레이션</h4>
+          <ul>
+            <li>학습용 GT 데이터 확보를 위해 정밀 동기화된 Camera–LiDAR 센서팩 형태를 선택</li>
+            <li>백팩형 LiDAR–Camera–IMU 센서팩으로 광명동굴/야외 데이터 취득</li>
+            <li>FAST-LIO2 기반 LiDAR–IMU SLAM 기반 Camera Colorized Mapping 파이프라인 구축</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>02. U-Net 기반 라이다 컬러라이제이션</h4>
+          <ul>
+            <li>단일 반사강도만으로는 색 표현이 부족하므로, U-Net 멀티스케일 Encoder–Decoder와 skip-connection 구조로 NIR · Signal · Reflectivity 다중 모달을 입력받아 RGB로 복원</li>
+            <li>카메라–LiDAR 화각·시점 차이로 색 정합이 틀어지는 문제를 해결하기 위해 Domain Generalization 적용 → Overlap Region 기준으로 GT를 재구성해 다양한 촬영 조건에서도 강인한 복원 성능 확보</li>
+            <li>구조 보존·엣지 강화·밝기 균형을 동시에 달성하기 위해 L1 · SSIM · Edge · Brightness를 결합한 복합 손실 함수 설계</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <h4>03. 카메라 없는 라이다 컬러 복원</h4>
+          <ul>
+            <li>U-Net 방식은 카메라 RGB를 GT로 필요로 하지만, 달 표면·동굴 등 카메라 부재 환경에서는 RGB GT를 얻을 수 없어 지도학습이 불가능 → GT 없이 동작하는 Noise2Void 비지도 노이즈 제거와 Style Injection in Diffusion(학습 불필요 Stylization)을 적용</li>
+            <li>Ouster 라이다 반사강도 이미지는 재질·거리·빔 간섭으로 강한 노이즈가 있어, 주변과 독립적인 픽셀을 노이즈로 보고 구조를 보존하며 제거하는 Noise2Void로 선명한 이미지 복원</li>
+            <li>원본 콘텐츠가 손상되면 3D 복원 품질이 떨어지므로, 구조를 변형하는 Colorization 대신 구조·경계를 보존하는 Stylization을 채택해 색 표현만 추가</li>
+          </ul>
+        </div>
+
+          <h3>Figures</h3>
+      <div class="proj-gallery">
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig01.jpg" alt="백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)"><figcaption>백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig02.png" alt="데이터 추론용 센서팩"><figcaption>데이터 추론용 센서팩</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig03.png" alt="실시간 3D 지형 Mesh 복원 결과"><figcaption>실시간 3D 지형 Mesh 복원 결과</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig04.png" alt="U-Net 기반 LiDAR 컬러라이제이션 개념"><figcaption>U-Net 기반 LiDAR 컬러라이제이션 개념</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig05.png" alt="U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)"><figcaption>U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig06.png" alt="컬러 복원 결과 비교"><figcaption>컬러 복원 결과 비교</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig07.png" alt="복합 손실(L1·SSIM·Edge·Brightness) 학습 곡선"><figcaption>복합 손실(L1·SSIM·Edge·Brightness) 학습 곡선</figcaption></figure>
+      </div>
 
 
         </div>
       </div>
     </div>
   </section>
+
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
+  <script>
+    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+      im.addEventListener('click', function(){
+        var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
+      });
+    });
+  </script>
 
   <div class="container">
     <footer class="site-footer">

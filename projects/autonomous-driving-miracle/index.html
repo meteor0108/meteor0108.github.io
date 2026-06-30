@@ -54,16 +54,47 @@
 
           <hr>
 
-          <h3>Overview</h3>
-        <p>UGV 플랫폼에서 정밀한 자율주행 경로 추종을 구현했습니다.</p>
-        <p><strong>PID 제어</strong>와 <strong>Stanley 기법</strong>을 적용하여 차량이 목표 경로를 정확하게 추종하도록 만들었습니다.</p>
+          <p style="color:#626567;margin-top:-6px;font-size:0.92em;">프로젝트 수행 기간 2024 &nbsp;·&nbsp; 참여 기간 2024 &nbsp;·&nbsp; 2024 대학생 창작 모빌리티 경진대회 (Team Miracle)</p>
 
-          <h3>Key Contributions</h3>
+          <h3>Overview</h3>
+        <p>정밀한 자율주행 경로 추종을 위해 <strong>PID 제어</strong> 및 <strong>Stanley 기법</strong>을 구현한 UGV 자율주행 시스템을 개발하고, LiDAR–IMU 기반 SLAM을 활용하여 음영구역 주행·배달·주차 등의 미션을 수행하기 위해 robust localization, lane detection, path planning 알고리즘을 구축한 프로젝트입니다.</p>
+        <p>LiDAR–IMU 기반 SLAM으로 GPS 음영구역에서도 견고한 위치추정을 수행하고, PID 속도·조향 제어와 Stanley 횡방향 제어를 적용해 곡선·직선 구간에서 정밀한 경로 추종을 달성하는 것을 목표로 했습니다.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;align-items:flex-start;">
+          <figure style="flex:1 1 320px;margin:0;text-align:center;">
+            <img src="images/ugv.jpg" alt="ERP42 UGV 자율주행 플랫폼" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">센서를 탑재한 ERP42 UGV 자율주행 플랫폼</figcaption>
+          </figure>
+          <figure style="flex:1 1 320px;margin:0;text-align:center;">
+            <img src="images/gazebo.png" alt="Gazebo 시뮬레이션" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo 시뮬레이션 환경에서의 ERP42 경로 추종 검증</figcaption>
+          </figure>
+        </div>
+
+          <h3>My Role</h3>
+          <p><b>01 · Stanley Method 경로 추종</b></p>
           <ul>
-          <li>PID 제어 기반 종·횡방향 제어 구현</li>
-          <li>Stanley 기법 기반 경로 추종 알고리즘 구현</li>
-          <li>UGV 플랫폼 자율주행 시스템 통합</li>
+          <li>Gazebo 시뮬레이션 환경에 주행 경로(path) 구성</li>
+          <li>ERP42 차량을 모델링하여 시뮬레이션 상에서 Stanley method 경로 추종 알고리즘 구현</li>
+          <li>횡방향/헤딩 오차를 보정하는 Stanley 조향 제어로 경로 추종 정확도 확보</li>
           </ul>
+          <p><b>02 · PID 제어기 설계 (종방향 속도 제어)</b></p>
+          <ul>
+          <li>차량에 특정 입력값을 주고 직선 주행하여 속도 응답 데이터 취득</li>
+          <li>EMA로 필터링 후 전달함수를 수학적으로 모델링, 근궤적(root locus) 기법으로 적합한 PID Gain 산출</li>
+          <li>튜닝 우선순위 — ① 정착시간 단축, ② 안정시간 단축(정속 유지), ③ 오버슈트 감소(관성 고려해 후순위)</li>
+          </ul>
+          <p><b>03 · Localization (Global Map)</b></p>
+          <ul>
+          <li>대회 현장을 사전에 global mapping하여 해당 맵 기반 localization 시도</li>
+          <li>대회 당일 구조물 배치가 크게 변경되어 ICP 정합이 실패</li>
+          <li>환경 변화에 취약한 맵 기반 접근의 한계를 확인 → Feature 기반 또는 보다 robust한 localization 기법 고안 필요</li>
+          </ul>
+
+        <figure style="margin:20px 0;text-align:center;">
+          <img src="images/pid.png" alt="PID 제어 블록 다이어그램" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
+          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">전달함수 모델링 기반 종방향 속도 PID 제어 블록 다이어그램</figcaption>
+        </figure>
 
         <h3>Links</h3>
         <p class="resources">[ <a href="https://github.com/meteor0108/Stanley_controller" target="_blank" rel="noopener">code 1 (Stanley)</a> / <a href="https://github.com/meteor0108/PID_controller" target="_blank" rel="noopener">code 2 (PID)</a> ]</p>
