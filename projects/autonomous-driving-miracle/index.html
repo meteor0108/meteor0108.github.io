@@ -66,8 +66,8 @@
             <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">센서를 탑재한 ERP42 UGV 자율주행 플랫폼</figcaption>
           </figure>
           <figure style="flex:1 1 320px;margin:0;text-align:center;">
-            <img src="images/gazebo.png" alt="Gazebo 시뮬레이션" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
-            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo 시뮬레이션 환경에서의 ERP42 경로 추종 검증</figcaption>
+            <img src="images/gazebo.png" alt="Gazebo 시뮬레이션 ERP42 차량 모델" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
+            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo 시뮬레이션 환경의 ERP42 차량 모델링</figcaption>
           </figure>
         </div>
 
@@ -78,12 +78,24 @@
           <li>ERP42 차량을 모델링하여 시뮬레이션 상에서 Stanley method 경로 추종 알고리즘 구현</li>
           <li>횡방향/헤딩 오차를 보정하는 Stanley 조향 제어로 경로 추종 정확도 확보</li>
           </ul>
+
+        <figure style="margin:20px 0;text-align:center;">
+          <img src="images/image52.png" alt="Gazebo sin-curve 경로 Stanley 추종 결과" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
+          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo sin-curve 경로에서의 Stanley 경로 추종 결과</figcaption>
+        </figure>
+
           <p><b>02 / PID 제어기 설계 (종방향 속도 제어)</b></p>
           <ul>
           <li>차량에 특정 입력값을 주고 직선 주행하여 속도 응답 데이터 취득</li>
           <li>EMA로 필터링 후 전달함수를 수학적으로 모델링, 근궤적(root locus) 기법으로 적합한 PID Gain 산출</li>
           <li>튜닝 우선순위 — ① 정착시간 단축, ② 안정시간 단축(정속 유지), ③ 오버슈트 감소(관성 고려해 후순위)</li>
           </ul>
+
+        <figure style="margin:20px 0;text-align:center;">
+          <img src="images/pid.png" alt="PID 제어 블록 다이어그램" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
+          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">전달함수 모델링 기반 종방향 속도 PID 제어 블록 다이어그램</figcaption>
+        </figure>
+
           <p><b>03 / Localization (Global Map)</b></p>
           <ul>
           <li>대회 현장을 사전에 global mapping하여 해당 맵 기반 localization 시도</li>
@@ -92,8 +104,8 @@
           </ul>
 
         <figure style="margin:20px 0;text-align:center;">
-          <img src="images/pid.png" alt="PID 제어 블록 다이어그램" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
-          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">전달함수 모델링 기반 종방향 속도 PID 제어 블록 다이어그램</figcaption>
+          <img src="images/image49.jpg" alt="2024 대학생 창작 모빌리티 경진대회 Team Miracle" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
+          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">2024 대학생 창작 모빌리티 경진대회 현장 (Team Miracle)</figcaption>
         </figure>
 
         <h3>Links</h3>

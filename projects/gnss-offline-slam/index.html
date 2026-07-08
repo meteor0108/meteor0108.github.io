@@ -71,6 +71,11 @@
         <p>본 연구는 다중 LiDAR(Ouster×3), 카메라(Blackfly), GNSS 센서를 탑재한 차량으로 수집한 rosbag 데이터를 입력받아, 컬러라이즈된 3D 포인트클라우드 맵과 메쉬를 생성하는 파이프라인을 구축하는 것을 목적으로 한다.</p>
         <p>LiDAR 포인트에 카메라 색상을 투영하고 GNSS 궤적으로 글로벌 좌표계에 정합한 뒤, VGICP/PGO로 정밀도를 높이고 NKSR/Poisson으로 표면을 재구성한다. 전체 과정은 rosbag 추출, 검증 → 궤적 시각화 → 컬러라이즈 → 맵 병합, 메쉬화의 4단계로 모듈화되어 있다.</p>
 
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig03.png" alt="파이프라인" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">파이프라인</figcaption>
+          </figure>
+
           <h3>참여 연구 항목</h3>
           <ul>
           <li>LiDAR–Camera colorization</li>
@@ -90,6 +95,17 @@
           </ul>
         </div>
 
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig08.png" alt="Lidar - camera extrinsic calibration result" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Lidar - camera extrinsic calibration result</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig05.png" alt="LiDAR Merge result" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">LiDAR Merge result</figcaption>
+            </figure>
+          </div>
+
         <div class="role-block">
           <h4>02. Local 정합 (GNSS/VGICP 기반)</h4>
           <ul>
@@ -99,6 +115,21 @@
             <li>프레임 간 정밀 정합으로 누적 오차 최소화</li>
           </ul>
         </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig02.png" alt="Initial alignment using odom only" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Initial alignment using odom only</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig06.png" alt="VGICP alignment results" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">VGICP alignment results</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig07.png" alt="Results of Poisson surface reconstruction" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Results of Poisson surface reconstruction</figcaption>
+            </figure>
+          </div>
 
         <div class="role-block">
           <h4>03. Global 정합 (Pose Graph Optimization)</h4>
@@ -110,17 +141,15 @@
           </ul>
         </div>
 
-          <h3>Figures</h3>
-      <div class="proj-gallery">
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig01.png" alt="GNSS 궤적 (대규모 주행 구간, 약 14km)"><figcaption>GNSS 궤적 (대규모 주행 구간, 약 14km)</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig02.png" alt="컬러라이즈된 도로 3D 복원 결과"><figcaption>컬러라이즈된 도로 3D 복원 결과</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig03.png" alt="LiDAR 포인트클라우드 맵"><figcaption>LiDAR 포인트클라우드 맵</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig04.png" alt="컬러라이즈된 3D 포인트클라우드 맵"><figcaption>컬러라이즈된 3D 포인트클라우드 맵</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig05.png" alt="글로벌 맵 병합 결과"><figcaption>글로벌 맵 병합 결과</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig06.png" alt="Poisson 표면 복원 메쉬"><figcaption>Poisson 표면 복원 메쉬</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig07.png" alt="대규모 구간 컬러 3D 복원 (14km × 10km)"><figcaption>대규모 구간 컬러 3D 복원 (14km × 10km)</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/gnss-offline-slam/images/fig08.png" alt="정합 품질 리포트"><figcaption>정합 품질 리포트</figcaption></figure>
-      </div>
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig04.png" alt="Pose Graph Optimization" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Pose Graph Optimization</figcaption>
+          </figure>
+
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig01.png" alt="GNSS 궤적 (대규모 주행 구간, 약 14km)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">GNSS 궤적 (대규모 주행 구간, 약 14km)</figcaption>
+          </figure>
 
         <h3>Links</h3>
         <p class="resources">[ <a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a> ]</p>
@@ -132,7 +161,7 @@
 
   <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
   <script>
-    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+    document.querySelectorAll('.proj-gallery img, .pipeline-figure img').forEach(function(im){
       im.addEventListener('click', function(){
         var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
       });

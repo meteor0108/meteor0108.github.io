@@ -73,6 +73,11 @@
         <p><strong>강건화</strong>: 모션 블러, 노이즈 등 비이상적 데이터에 대응하기 위해 반복적 이상치 제거, 다중 스케일 ICP, 강건 손실(Huber, Cauchy) 기반 번들 조정을 적용한다.</p>
         <p><strong>검증 가능성</strong>: 재투영 오차, RMSE 기반 정량적 품질 등급과 커버리지 맵, 오차 히트맵 시각화를 제공해 신뢰할 수 있는 워크플로를 구현한다.</p>
 
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig01.png" alt="통합 캘리브레이션 파이프라인 구조 (공통 타겟 검출 + 카메라/스테레오/카메라–라이다/라이다–라이다)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">통합 캘리브레이션 파이프라인 구조 (공통 타겟 검출 + 카메라/스테레오/카메라–라이다/라이다–라이다)</figcaption>
+          </figure>
+
           <h3>참여 연구 항목</h3>
           <ul>
           <li>RGB/LWIR Camera Intrinsic calibration</li>
@@ -91,6 +96,17 @@
           </ul>
         </div>
 
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig10.png" alt="Intrinsic 왜곡 보정 (Original vs Undistorted) 및 재투영 검증" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Intrinsic 왜곡 보정 (Original vs Undistorted) 및 재투영 검증</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig07.png" alt="RGB Intrinsic Calibration Report (재투영 RMSE)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">RGB Intrinsic Calibration Report (재투영 RMSE)</figcaption>
+            </figure>
+          </div>
+
         <div class="role-block">
           <h4>02. Camera – LiDAR Extrinsic calibration</h4>
           <ul>
@@ -99,6 +115,22 @@
             <li>카메라 내부 파라미터 정확도에 의존하며, 보드 평면의 기울기 다양성 부족 시 추정 불안정</li>
           </ul>
         </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig11.png" alt="Camera–LiDAR 투영 오버레이 정합 검증" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Camera–LiDAR 투영 오버레이 정합 검증</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig09.png" alt="LiDAR–LiDAR ICP 정합 결과 (Before / After)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">LiDAR–LiDAR ICP 정합 결과 (Before / After)</figcaption>
+            </figure>
+          </div>
+
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig08.png" alt="Extrinsic 최적화 수렴 그래프 (RMSE)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Extrinsic 최적화 수렴 그래프 (RMSE)</figcaption>
+          </figure>
 
         <div class="role-block">
           <h4>03. 툴킷화 및 검증</h4>
@@ -110,21 +142,35 @@
           </ul>
         </div>
 
-          <h3>Figures</h3>
-      <div class="proj-gallery">
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig01.png" alt="통합 캘리브레이션 파이프라인 구조 (공통 타겟 검출 + 카메라/스테레오/카메라–라이다/라이다–라이다)"><figcaption>통합 캘리브레이션 파이프라인 구조 (공통 타겟 검출 + 카메라/스테레오/카메라–라이다/라이다–라이다)</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig02.png" alt="캘리브레이션 툴킷 UI"><figcaption>캘리브레이션 툴킷 UI</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig03.png" alt="센서 구성 선택 화면"><figcaption>센서 구성 선택 화면</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig04.png" alt="캘리브레이션 실행 화면"><figcaption>캘리브레이션 실행 화면</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig05.png" alt="캘리브레이션 결과 리포트"><figcaption>캘리브레이션 결과 리포트</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig06.png" alt="체커보드 코너 검출 결과"><figcaption>체커보드 코너 검출 결과</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig07.png" alt="LWIR(열화상) 카메라 체커보드 검출"><figcaption>LWIR(열화상) 카메라 체커보드 검출</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig08.png" alt="RGB Intrinsic Calibration Report"><figcaption>RGB Intrinsic Calibration Report</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig09.png" alt="번들 조정 수렴 그래프"><figcaption>번들 조정 수렴 그래프</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig10.png" alt="실내 체커보드 캘리브레이션 장면"><figcaption>실내 체커보드 캘리브레이션 장면</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig11.png" alt="Camera–LiDAR 투영 오버레이 정합 검증"><figcaption>Camera–LiDAR 투영 오버레이 정합 검증</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/multi-sensor-calibration/images/fig12.png" alt="Camera–LiDAR extrinsic 정합 (체커보드 + 라이다 포인트)"><figcaption>Camera–LiDAR extrinsic 정합 (체커보드 + 라이다 포인트)</figcaption></figure>
-      </div>
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig02.png" alt="캘리브레이션 툴킷 UI — 캘리브레이션 유형 선택" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">캘리브레이션 툴킷 UI — 캘리브레이션 유형 선택</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig03.png" alt="캘리브레이션 툴킷 UI — 센서 구성 선택" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">캘리브레이션 툴킷 UI — 센서 구성 선택</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig04.png" alt="캘리브레이션 툴킷 UI — 캘리브레이션 보드 설정" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">캘리브레이션 툴킷 UI — 캘리브레이션 보드 설정</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig06.png" alt="캘리브레이션 툴킷 UI — 실행 및 결과 리포트" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">캘리브레이션 툴킷 UI — 실행 및 결과 리포트</figcaption>
+            </figure>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig05.png" alt="커버리지 맵 (타겟 검출 분포)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">커버리지 맵 (타겟 검출 분포)</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/multi-sensor-calibration/images/fig12.png" alt="재투영 오차 히트맵" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">재투영 오차 히트맵</figcaption>
+            </figure>
+          </div>
 
 
         </div>
@@ -134,7 +180,7 @@
 
   <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
   <script>
-    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+    document.querySelectorAll('.proj-gallery img, .pipeline-figure img').forEach(function(im){
       im.addEventListener('click', function(){
         var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
       });

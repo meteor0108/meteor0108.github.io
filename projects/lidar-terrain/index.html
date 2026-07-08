@@ -71,6 +71,22 @@
         <p>본 연구는 달 표면 및 용암동굴과 유사한 극한 환경에서 LiDAR 기반 3D 지형을 실시간으로 생성, 시각화하는 통합 파이프라인을 구축하는 것을 목적으로 한다. 이를 위해 백팩형 다중센서 시스템을 제작하고, 카메라 없이도 딥러닝 기반 컬러라이제이션으로 LiDAR 데이터의 시각 품질을 향상시켜 미래 달 탐사 및 극한환경 로봇 주행 기술에 활용하고자 하였다.</p>
         <p>백팩형 LiDAR–카메라–IMU 센서팩으로 FAST-LIO2 Odometry와 nvblox 실시간 Mesh를 생성하고, Noise2Void로 라이다 노이즈를 제거, 컬러라이즈하여 Jetson 임베디드 환경에서 실시간 3D 지형을 복원한다.</p>
 
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/lidar-terrain/images/fig04.png" alt="파이프라인" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">파이프라인</figcaption>
+          </figure>
+
+          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/lidar-terrain/images/fig01.jpg" alt="백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)</figcaption>
+            </figure>
+            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
+              <img loading="lazy" src="/projects/lidar-terrain/images/fig02.png" alt="데이터 추론용 센서팩" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">데이터 추론용 센서팩</figcaption>
+            </figure>
+          </div>
+
           <h3>참여 연구 항목</h3>
           <ul>
           <li>Camera – LiDAR 캘리브레이션 데이터 취득 및 수행</li>
@@ -89,6 +105,11 @@
           </ul>
         </div>
 
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/lidar-terrain/images/fig03.png" alt="LiDAR Camera Projection result" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">LiDAR Camera Projection result</figcaption>
+          </figure>
+
         <div class="role-block">
           <h4>02. U-Net 기반 라이다 컬러라이제이션</h4>
           <ul>
@@ -97,6 +118,11 @@
             <li>구조 보존, 엣지 강화, 밝기 균형을 동시에 달성하기 위해 L1/SSIM/Edge/Brightness를 결합한 복합 손실 함수 설계</li>
           </ul>
         </div>
+
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/lidar-terrain/images/fig07.png" alt="U-Net 기반 LiDAR 컬러라이제이션 네트워크 구조 (Reflection Image → RGB)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">U-Net 기반 LiDAR 컬러라이제이션 네트워크 구조 (Reflection Image → RGB)</figcaption>
+          </figure>
 
         <div class="role-block">
           <h4>03. 카메라 없는 라이다 컬러 복원</h4>
@@ -107,16 +133,15 @@
           </ul>
         </div>
 
-          <h3>Figures</h3>
-      <div class="proj-gallery">
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig01.jpg" alt="백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)"><figcaption>백팩형 LiDAR–Camera–IMU 센서팩 (데이터 취득)</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig02.png" alt="데이터 추론용 센서팩"><figcaption>데이터 추론용 센서팩</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig03.png" alt="실시간 3D 지형 Mesh 복원 결과"><figcaption>실시간 3D 지형 Mesh 복원 결과</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig04.png" alt="U-Net 기반 LiDAR 컬러라이제이션 개념"><figcaption>U-Net 기반 LiDAR 컬러라이제이션 개념</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig05.png" alt="U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)"><figcaption>U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig06.png" alt="컬러 복원 결과 비교"><figcaption>컬러 복원 결과 비교</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig07.png" alt="복합 손실(L1/SSIM/Edge/Brightness) 학습 곡선"><figcaption>복합 손실(L1/SSIM/Edge/Brightness) 학습 곡선</figcaption></figure>
-      </div>
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/lidar-terrain/images/fig06.png" alt="Style Injection in Diffusion 구조 (학습 불필요 Stylization)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Style Injection in Diffusion 구조 (학습 불필요 Stylization)</figcaption>
+          </figure>
+
+          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
+            <img loading="lazy" src="/projects/lidar-terrain/images/fig05.png" alt="컬러라이즈된 3D 지형 복원 결과" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
+            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">컬러라이즈된 3D 지형 복원 결과</figcaption>
+          </figure>
 
 
         </div>
@@ -126,7 +151,7 @@
 
   <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
   <script>
-    document.querySelectorAll('.proj-gallery img').forEach(function(im){
+    document.querySelectorAll('.proj-gallery img, .pipeline-figure img').forEach(function(im){
       im.addEventListener('click', function(){
         var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
       });
