@@ -62,14 +62,14 @@
           <h1 style="margin-bottom:4px;">GNSS 기반 오프라인 3D Reconstruction 개발</h1>
           <h3 style="color:#626567;font-weight:400;margin-top:0;">GNSS-based Offline Colored 3D Reconstruction</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 · 주식회사 앤트랩 (ANTLAB) · Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025, 주식회사 앤트랩 (ANTLAB), Researcher</p>
           <p style="margin:10px 0 18px 0;"><span class="meta-tag">3D Reconstruction</span> <span class="meta-tag">GNSS</span> <span class="meta-tag">Multi-LiDAR</span> <span class="meta-tag">Colorization</span> <span class="meta-tag">VGICP</span> <span class="meta-tag">PGO</span></p>
 
           <hr>
 
-          <h3>연구 개요 · Overview</h3>
+          <h3>연구 개요 / Overview</h3>
         <p>본 연구는 다중 LiDAR(Ouster×3), 카메라(Blackfly), GNSS 센서를 탑재한 차량으로 수집한 rosbag 데이터를 입력받아, 컬러라이즈된 3D 포인트클라우드 맵과 메쉬를 생성하는 파이프라인을 구축하는 것을 목적으로 한다.</p>
-        <p>LiDAR 포인트에 카메라 색상을 투영하고 GNSS 궤적으로 글로벌 좌표계에 정합한 뒤, VGICP/PGO로 정밀도를 높이고 NKSR/Poisson으로 표면을 재구성한다. 전체 과정은 rosbag 추출·검증 → 궤적 시각화 → 컬러라이즈 → 맵 병합·메쉬화의 4단계로 모듈화되어 있다.</p>
+        <p>LiDAR 포인트에 카메라 색상을 투영하고 GNSS 궤적으로 글로벌 좌표계에 정합한 뒤, VGICP/PGO로 정밀도를 높이고 NKSR/Poisson으로 표면을 재구성한다. 전체 과정은 rosbag 추출, 검증 → 궤적 시각화 → 컬러라이즈 → 맵 병합, 메쉬화의 4단계로 모듈화되어 있다.</p>
 
           <h3>참여 연구 항목</h3>
           <ul>
@@ -91,7 +91,7 @@
         </div>
 
         <div class="role-block">
-          <h4>02. Local 정합 (GNSS · VGICP 기반)</h4>
+          <h4>02. Local 정합 (GNSS/VGICP 기반)</h4>
           <ul>
             <li>GNSS 항법 데이터로 초기 궤적(trajectory init) 생성</li>
             <li>고정밀 GNSS(NovAtel CPT7)의 odometry를 초기값으로 사용해도 정밀 mapping이 가능할 것으로 판단했으나, 산간지역의 RTK 음영/오차 등으로 정확도 부족</li>
@@ -104,7 +104,7 @@
           <h4>03. Global 정합 (Pose Graph Optimization)</h4>
           <ul>
             <li>Pose Graph Optimization(PGO)으로 global 정합 일관성 최적화</li>
-            <li>UTM · Radius 기반 전역 맵 자동 병합으로 대규모 맵 구성</li>
+            <li>UTM/Radius 기반 전역 맵 자동 병합으로 대규모 맵 구성</li>
             <li>컬러라이즈 후 Poisson 표면 복원으로 메쉬 생성</li>
             <li><strong>정량 성과</strong> — 14km × 10km 대규모 구간 컬러 3D 복원</li>
           </ul>

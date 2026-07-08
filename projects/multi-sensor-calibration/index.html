@@ -62,12 +62,12 @@
           <h1 style="margin-bottom:4px;">멀티 센서 캘리브레이션 툴킷 개발</h1>
           <h3 style="color:#626567;font-weight:400;margin-top:0;">Multi-Sensor Calibration Toolkit</h3>
 
-          <p style="color:#626567;margin-top:12px;">2026 · 주식회사 앤트랩 (ANTLAB) · Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2026, 주식회사 앤트랩 (ANTLAB), Researcher</p>
           <p style="margin:10px 0 18px 0;"><span class="meta-tag">Calibration</span> <span class="meta-tag">RGB/LWIR</span> <span class="meta-tag">Stereo</span> <span class="meta-tag">Camera-LiDAR</span> <span class="meta-tag">LiDAR-LiDAR</span> <span class="meta-tag">Auto-Calibration</span></p>
 
           <hr>
 
-          <h3>연구 개요 · Overview</h3>
+          <h3>연구 개요 / Overview</h3>
         <p>본 연구는 RGB/LWIR 카메라의 내부 파라미터와 스테레오, 카메라-라이다, 라이다–라이다의 외부 파라미터를 단일 프레임워크에서 자동 추정하는 다중 센서 캘리브레이션 툴킷 구축을 목적으로 한다.</p>
         <p><strong>통합 체계</strong>: 타겟(체커보드, ChArUco) 검출을 공통 모듈로 두고, 그 위에 카메라 모델(pinhole, fisheye), 스테레오/PnP 외부 캘리브레이션, 평면 대응 기반 카메라–라이다 정렬, ICP/타겟 기반 라이다–라이다 정합을 일원화한다. 특히 카메라–라이다는 초기 변환행렬 없이 자동 초기화하는 오토 캘리브레이션을 목표로 한다.</p>
         <p><strong>강건화</strong>: 모션 블러, 노이즈 등 비이상적 데이터에 대응하기 위해 반복적 이상치 제거, 다중 스케일 ICP, 강건 손실(Huber, Cauchy) 기반 번들 조정을 적용한다.</p>

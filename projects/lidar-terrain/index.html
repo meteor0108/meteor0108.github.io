@@ -62,14 +62,14 @@
           <h1 style="margin-bottom:4px;">딥러닝을 활용한 LiDAR 기반 3D 지형 생성 및 시각화 연구</h1>
           <h3 style="color:#626567;font-weight:400;margin-top:0;">Deep Learning-based 3D Terrain Generation & VR Visualization</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 · 한국항공우주연구원 (KARI) · Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025, 한국항공우주연구원 (KARI), Researcher</p>
           <p style="margin:10px 0 18px 0;"><span class="meta-tag">LiDAR</span> <span class="meta-tag">3D Terrain</span> <span class="meta-tag">Deep Learning</span> <span class="meta-tag">Colorization</span> <span class="meta-tag">Noise2Void</span> <span class="meta-tag">Embedded</span> <span class="meta-tag">VR</span></p>
 
           <hr>
 
-          <h3>연구 개요 · Overview</h3>
-        <p>본 연구는 달 표면 및 용암동굴과 유사한 극한 환경에서 LiDAR 기반 3D 지형을 실시간으로 생성·시각화하는 통합 파이프라인을 구축하는 것을 목적으로 한다. 이를 위해 백팩형 다중센서 시스템을 제작하고, 카메라 없이도 딥러닝 기반 컬러라이제이션으로 LiDAR 데이터의 시각 품질을 향상시켜 미래 달 탐사 및 극한환경 로봇 주행 기술에 활용하고자 하였다.</p>
-        <p>백팩형 LiDAR–카메라–IMU 센서팩으로 FAST-LIO2 Odometry와 nvblox 실시간 Mesh를 생성하고, Noise2Void로 라이다 노이즈를 제거·컬러라이즈하여 Jetson 임베디드 환경에서 실시간 3D 지형을 복원한다.</p>
+          <h3>연구 개요 / Overview</h3>
+        <p>본 연구는 달 표면 및 용암동굴과 유사한 극한 환경에서 LiDAR 기반 3D 지형을 실시간으로 생성, 시각화하는 통합 파이프라인을 구축하는 것을 목적으로 한다. 이를 위해 백팩형 다중센서 시스템을 제작하고, 카메라 없이도 딥러닝 기반 컬러라이제이션으로 LiDAR 데이터의 시각 품질을 향상시켜 미래 달 탐사 및 극한환경 로봇 주행 기술에 활용하고자 하였다.</p>
+        <p>백팩형 LiDAR–카메라–IMU 센서팩으로 FAST-LIO2 Odometry와 nvblox 실시간 Mesh를 생성하고, Noise2Void로 라이다 노이즈를 제거, 컬러라이즈하여 Jetson 임베디드 환경에서 실시간 3D 지형을 복원한다.</p>
 
           <h3>참여 연구 항목</h3>
           <ul>
@@ -92,18 +92,18 @@
         <div class="role-block">
           <h4>02. U-Net 기반 라이다 컬러라이제이션</h4>
           <ul>
-            <li>단일 반사강도만으로는 색 표현이 부족하므로, U-Net 멀티스케일 Encoder–Decoder와 skip-connection 구조로 NIR · Signal · Reflectivity 다중 모달을 입력받아 RGB로 복원</li>
-            <li>카메라–LiDAR 화각·시점 차이로 색 정합이 틀어지는 문제를 해결하기 위해 Domain Generalization 적용 → Overlap Region 기준으로 GT를 재구성해 다양한 촬영 조건에서도 강인한 복원 성능 확보</li>
-            <li>구조 보존·엣지 강화·밝기 균형을 동시에 달성하기 위해 L1 · SSIM · Edge · Brightness를 결합한 복합 손실 함수 설계</li>
+            <li>단일 반사강도만으로는 색 표현이 부족하므로, U-Net 멀티스케일 Encoder–Decoder와 skip-connection 구조로 NIR/Signal/Reflectivity 다중 모달을 입력받아 RGB로 복원</li>
+            <li>카메라–LiDAR 화각/시점 차이로 색 정합이 틀어지는 문제를 해결하기 위해 Domain Generalization 적용 → Overlap Region 기준으로 GT를 재구성해 다양한 촬영 조건에서도 강인한 복원 성능 확보</li>
+            <li>구조 보존, 엣지 강화, 밝기 균형을 동시에 달성하기 위해 L1/SSIM/Edge/Brightness를 결합한 복합 손실 함수 설계</li>
           </ul>
         </div>
 
         <div class="role-block">
           <h4>03. 카메라 없는 라이다 컬러 복원</h4>
           <ul>
-            <li>U-Net 방식은 카메라 RGB를 GT로 필요로 하지만, 달 표면·동굴 등 카메라 부재 환경에서는 RGB GT를 얻을 수 없어 지도학습이 불가능 → GT 없이 동작하는 Noise2Void 비지도 노이즈 제거와 Style Injection in Diffusion(학습 불필요 Stylization)을 적용</li>
-            <li>Ouster 라이다 반사강도 이미지는 재질·거리·빔 간섭으로 강한 노이즈가 있어, 주변과 독립적인 픽셀을 노이즈로 보고 구조를 보존하며 제거하는 Noise2Void로 선명한 이미지 복원</li>
-            <li>원본 콘텐츠가 손상되면 3D 복원 품질이 떨어지므로, 구조를 변형하는 Colorization 대신 구조·경계를 보존하는 Stylization을 채택해 색 표현만 추가</li>
+            <li>U-Net 방식은 카메라 RGB를 GT로 필요로 하지만, 달 표면, 동굴 등 카메라 부재 환경에서는 RGB GT를 얻을 수 없어 지도학습이 불가능 → GT 없이 동작하는 Noise2Void 비지도 노이즈 제거와 Style Injection in Diffusion(학습 불필요 Stylization)을 적용</li>
+            <li>Ouster 라이다 반사강도 이미지는 재질, 거리, 빔 간섭으로 강한 노이즈가 있어, 주변과 독립적인 픽셀을 노이즈로 보고 구조를 보존하며 제거하는 Noise2Void로 선명한 이미지 복원</li>
+            <li>원본 콘텐츠가 손상되면 3D 복원 품질이 떨어지므로, 구조를 변형하는 Colorization 대신 구조, 경계를 보존하는 Stylization을 채택해 색 표현만 추가</li>
           </ul>
         </div>
 
@@ -115,7 +115,7 @@
         <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig04.png" alt="U-Net 기반 LiDAR 컬러라이제이션 개념"><figcaption>U-Net 기반 LiDAR 컬러라이제이션 개념</figcaption></figure>
         <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig05.png" alt="U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)"><figcaption>U-Net 멀티스케일 Encoder–Decoder 구조 (NIR/Signal/Reflectivity → RGB)</figcaption></figure>
         <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig06.png" alt="컬러 복원 결과 비교"><figcaption>컬러 복원 결과 비교</figcaption></figure>
-        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig07.png" alt="복합 손실(L1·SSIM·Edge·Brightness) 학습 곡선"><figcaption>복합 손실(L1·SSIM·Edge·Brightness) 학습 곡선</figcaption></figure>
+        <figure><img loading="lazy" src="/projects/lidar-terrain/images/fig07.png" alt="복합 손실(L1/SSIM/Edge/Brightness) 학습 곡선"><figcaption>복합 손실(L1/SSIM/Edge/Brightness) 학습 곡선</figcaption></figure>
       </div>
 
 

@@ -62,26 +62,26 @@
           <h1 style="margin-bottom:4px;">이종 모빌리티 플랫폼 간 다중 로봇 SLAM 지도 병합 기술 개발</h1>
           <h3 style="color:#626567;font-weight:400;margin-top:0;">Multi-Robot SLAM Map Merging across Heterogeneous Platforms</h3>
 
-          <p style="color:#626567;margin-top:12px;">2025 · 국방과학연구소 (ADD) · Researcher</p>
+          <p style="color:#626567;margin-top:12px;">2025, 국방과학연구소 (ADD), Researcher</p>
           <p style="margin:10px 0 18px 0;"><span class="meta-tag">SLAM</span> <span class="meta-tag">Multi-Robot</span> <span class="meta-tag">UGV</span> <span class="meta-tag">UAV</span> <span class="meta-tag">Map Merging</span> <span class="meta-tag">FAST-LIO2</span></p>
 
           <hr>
 
-          <h3>연구 개요 · Overview</h3>
-        <p>고해상도·고속 처리가 가능한 주 플랫폼(UGV)과 넓은 탐색 범위를 갖는 보조 플랫폼(UAV/UGV)을 동시에 운용하여 각 플랫폼의 한계를 상호 보완하고, 개별 SLAM과 이종 플랫폼 간 데이터 융합을 통해 미지 지역의 통합 지도를 작성하는 기술을 개발하는 연구이다.</p>
+          <h3>연구 개요 / Overview</h3>
+        <p>고해상도/고속 처리가 가능한 주 플랫폼(UGV)과 넓은 탐색 범위를 갖는 보조 플랫폼(UAV/UGV)을 동시에 운용하여 각 플랫폼의 한계를 상호 보완하고, 개별 SLAM과 이종 플랫폼 간 데이터 융합을 통해 미지 지역의 통합 지도를 작성하는 기술을 개발하는 연구이다.</p>
         <p><strong>연구 역할</strong>: 다중센서 전처리 기술, 이종센서 융합 특징 추출 기술 개발</p>
 
           <h3>참여 연구 항목</h3>
           <ul>
-          <li>Camera – LiDAR Calibration 데이터 취득 및 방법론 조사·비교</li>
-          <li>LiDAR – IMU Base SLAM을 위한 Calibration 데이터 취득 및 방법론 조사·비교</li>
-          <li>UGV·UAV 개별 SLAM 데이터 취득 및 SLAM 알고리즘별 Mapping 정성 성능 비교</li>
+          <li>Camera – LiDAR Calibration 데이터 취득 및 방법론 조사, 비교</li>
+          <li>LiDAR – IMU Base SLAM을 위한 Calibration 데이터 취득 및 방법론 조사, 비교</li>
+          <li>UGV/UAV 개별 SLAM 데이터 취득 및 SLAM 알고리즘별 Mapping 정성 성능 비교</li>
           </ul>
 
           <h3>My Role</h3>
 
         <div class="role-block">
-          <h4>01. Camera – LiDAR Calibration 데이터 취득 및 방법론 조사·비교</h4>
+          <h4>01. Camera – LiDAR Calibration 데이터 취득 및 방법론 조사, 비교</h4>
           <ul>
             <li>전방 카메라 Intrinsic 캘리브레이션, 2개의 360도 라이다와 전방 컬러카메라 각각 Extrinsic 캘리브레이션 진행</li>
             <li>두 개의 라이다 포인트클라우드 ICP로 라이다 간 좌표계 변환행렬 계산</li>
@@ -90,11 +90,11 @@
         </div>
 
         <div class="role-block">
-          <h4>02. LiDAR – IMU Base SLAM을 위한 Calibration 데이터 취득 및 방법론 조사·비교</h4>
+          <h4>02. LiDAR – IMU Base SLAM을 위한 Calibration 데이터 취득 및 방법론 조사, 비교</h4>
           <ul>
             <li>IMU센서–Livox LiDAR, IMU센서–Ouster LiDAR 각각 FAST-LIO 기반 LiDAR–IMU Extrinsic 캘리브레이션 진행</li>
             <li>초기 센서팩 CAD 파라미터로 FAST-LIO 기반 라이다–IMU 캘리브레이션 알고리즘 수행</li>
-            <li>LIO SLAM 알고리즘은 FAST-LIO2로 맵·라이다 오도메트리 및 맵 생성</li>
+            <li>LIO SLAM 알고리즘은 FAST-LIO2로 맵, 라이다 오도메트리 및 맵 생성</li>
             <li>캘리브레이션된 모든 센서팩에서 실내환경 LIO 알고리즘이 동작함을 확인</li>
             <li>센서팩마다 같은 실내 환경임에도 실내 맵 생성 결과에 차이점이 보임</li>
             <li>실내환경에서 Livox 라이다는 FAST-LIO2로 맵이 잘 생성되나, 원통형 라이다인 Ouster LiDAR(128 Ch) 및 Velodyne(16 Ch)은 보다 낮은 성능으로 Drift가 있는 맵이 생성</li>
