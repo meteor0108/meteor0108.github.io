@@ -1,162 +1,117 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.7.0">
-  <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of an autonomous-driving demonstration environment.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  <link rel="stylesheet" href="/css/academic.css">
-  <style>
-    .home-section{animation:none}
-    .proj-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin:8px 0 4px 0; }
-    .proj-gallery figure { margin:0; }
-    .proj-gallery img { width:100%; height:200px; object-fit:contain; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in; }
-    .proj-gallery figcaption { font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4; }
-    .role-block { margin-bottom:6px; }
-    .role-block h4 { margin-bottom:6px; }
-    .meta-tag { display:inline-block; background:#eef1f6; color:#2962ff; border-radius:4px; padding:2px 10px; margin:2px 6px 2px 0; font-size:0.8rem; }
-    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; }
-    .lightbox img { max-width:94%; max-height:94%; object-fit:contain; }
-  </style>
-  <title>새만금 자율운송 상용차 실증지원 인프라 조성 | SungGuk Yu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="SungGuk Yu">
+<meta name="description" content="Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of an autonomous-driving demonstration environment.">
+<meta name="theme-color" content="#fbf8f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1c19" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="SungGuk Yu">
+<meta property="og:title" content="새만금 자율운송 상용차 실증지원 인프라 조성">
+<meta property="og:description" content="Precise synchronization and calibration of heterogeneous multi-sensors for safety evaluation of an autonomous-driving demonstration environment.">
+<meta property="og:image" content="/authors/admin/profile.jpg">
+<meta property="twitter:card" content="summary">
+<script>try { var t = localStorage.getItem("sg.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<title>새만금 자율운송 상용차 실증지원 인프라 조성 | SungGuk Yu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23c0391f'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <h1><a href="/">SungGuk Yu</a></h1>
+      <p class="tagline">Robotics Researcher · SLAM, Sensor Fusion, Sensor Calibration</p>
     </div>
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+    <button class="themebtn" id="themeBtn" type="button">◐ Auto</button>
+  </header>
+
+  <nav class="toolbar" aria-label="Sections">
+    <div class="seg">
+      <a href="/">Home</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/#publications">Publications</a>
+      <a href="/cv/CV_SungGukYu.pdf">CV</a>
     </div>
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-      <ul class="navbar-nav d-md-inline-flex">
-        <li class="nav-item"><a class="nav-link" href="/#about"><span>Home</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#experience"><span>Research</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects/"><span>Projects</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#awards"><span>Awards &amp; Honors</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-  <section class="home-section" style="padding: 40px 0 20px 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
+  <main>
+    <p class="back"><a href="/projects/">← Back to Projects</a></p>
+    <header class="proj-head">
+      <h1 class="proj-title">새만금 자율운송 상용차 실증지원 인프라 조성</h1>
+      <p class="proj-sub">Calibration Infrastructure for Autonomous-Driving Demonstration</p>
+      <div class="meta"><span class="grp"><span class="venue">2025</span></span><span class="grp"><span>한국자동차연구원 (KATECH)</span></span><span class="grp"><span>Researcher</span></span></div>
+      <div class="chips"><span class="chip">Calibration</span><span class="chip">Camera-LiDAR</span><span class="chip">LiDAR-LiDAR</span><span class="chip">Autonomous Driving</span><span class="chip">Dataset</span></div>
+    </header>
 
-          <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
-
-          <h1 style="margin-bottom:4px;">새만금 자율운송 상용차 실증지원 인프라 조성</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">Calibration Infrastructure for Autonomous-Driving Demonstration</h3>
-
-          <p style="color:#626567;margin-top:12px;">2025, 한국자동차연구원 (KATECH), Researcher</p>
-          <p style="margin:10px 0 18px 0;"><span class="meta-tag">Calibration</span> <span class="meta-tag">Camera-LiDAR</span> <span class="meta-tag">LiDAR-LiDAR</span> <span class="meta-tag">Autonomous Driving</span> <span class="meta-tag">Dataset</span></p>
-
-          <hr>
-
-          <h3>연구 개요 / Overview</h3>
+    <section class="section">
+      <h2 class="section-head"><span>Overview</span></h2>
+      <div class="prose">
         <p>새만금 자율운송 상용차 실증 구간의 안전도 평가를 위해, 카메라/라이다 등 멀티센서 기반의 고품질 AI 학습용 라벨링 데이터셋을 구축한 연구이다. 다중센서 전처리 기술과 이종센서 융합 특징 추출 기술을 개발하여, 상용차 주행 환경에서 발생하는 다양한 동적 객체를 정밀하게 인지할 수 있는 데이터 인프라를 마련했다.</p>
+      </div>
+      <div class="figs one">
+        <figure class="figure"><img loading="lazy" src="images/fig01.png" alt="대형 화물차량 센서 배치 및 감지 범위"><figcaption>대형 화물차량의 센서 배치와 감지 범위 (Camera / LiDAR / Radar)</figcaption></figure>
+      </div>
+    </section>
 
-          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
-            <img loading="lazy" src="/projects/saemangeum-infra/images/fig01.png" alt="대형 화물차량 다중 센서 배치 및 화각(FOV) 구성" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">대형 화물차량 다중 센서 배치 및 화각(FOV) 구성</figcaption>
-          </figure>
+    <section class="section">
+      <h2 class="section-head"><span>Scope</span><span>참여 연구 항목</span></h2>
+      <ul class="bullets">
+        <li>체커보드 기반 타겟 캘리브레이션 데이터 취득</li>
+        <li>다중센서(Camera, LiDAR) 캘리브레이션 수행</li>
+        <li>캘리브레이션 결과 및 정합 오차 검증</li>
+      </ul>
+    </section>
 
-          <h3>참여 연구 항목</h3>
-          <ul>
-          <li>체커보드 기반 타겟 캘리브레이션 데이터 취득</li>
-          <li>다중센서(Camera, LiDAR) 캘리브레이션 수행</li>
-          <li>캘리브레이션 결과 및 정합 오차 검증</li>
-          </ul>
+    <section class="section">
+      <h2 class="section-head"><span>My Role</span></h2>
 
-          <h3>My Role</h3>
-
-        <div class="role-block">
-          <h4>01. 체커보드 기반 타겟 캘리브레이션 데이터 취득</h4>
-          <ul>
-            <li>대형 화물차량에 설치된 센서 특성상 높고 넓은 화각으로 주변 환경 데이터를 취득</li>
-            <li>ChArUco 패턴판을 이용하여 캘리브레이션 타겟 인식률 향상</li>
-          </ul>
-        </div>
-
-          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/saemangeum-infra/images/fig05.jpg" alt="ChArUco / 체커보드 타겟 캘리브레이션 데이터 취득" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">ChArUco / 체커보드 타겟 캘리브레이션 데이터 취득</figcaption>
-            </figure>
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/saemangeum-infra/images/fig03.jpg" alt="실증 차량 및 센서 장착 (데이터 취득 환경)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">실증 차량 및 센서 장착 (데이터 취득 환경)</figcaption>
-            </figure>
-          </div>
-
-        <div class="role-block">
-          <h4>02. 다중센서(Camera, LiDAR) 캘리브레이션 수행</h4>
-          <ul>
-            <li>FAKRA 카메라 Intrinsic 캘리브레이션을 전, 후, 좌, 우 카메라에 대해 수행</li>
-            <li>같은 방향의 Camera–LiDAR Extrinsic은 평면 기반, LiDAR–LiDAR Extrinsic은 ICP 기반으로 진행</li>
-            <li>LiDAR–LiDAR calibration 시 overlap이 충분치 않아, 가까운 센서(left-front / front-right)끼리 캘리브레이션 후 projection하여 ICP source로 사용</li>
-            <li>Camera 간 extrinsic calibration은 overlap이 존재하지 않아 타겟 기반 캘리브레이션이 불가 → overlap이 없는 환경에서는 Visual SLAM odometry 기반 캘리브레이션을 대안으로 고안</li>
-          </ul>
-        </div>
-
-        <div class="role-block">
-          <h4>03. 캘리브레이션 결과 및 정합 오차 검증</h4>
-          <ul>
-            <li>모든 센서의 좌표계가 단일 좌표계로 정렬된 것을 확인</li>
-            <li><strong>정량 성과</strong> — Camera intrinsic 재투영 RMSE 0.2px 이내, Camera–LiDAR extrinsic RMSE 3mm 이내, LiDAR–LiDAR extrinsic RMSE 4mm 이내</li>
-            <li>LiDAR 포인트 클라우드의 각 포인트에 대응되는 카메라 이미지의 RGB 값을 투영하여 색상 복원으로 정합 정성 검증</li>
-          </ul>
-        </div>
-
-          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/saemangeum-infra/images/fig02.jpeg" alt="다중 센서 좌표계 정합 결과 (단일 좌표계 정렬)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">다중 센서 좌표계 정합 결과 (단일 좌표계 정렬)</figcaption>
-            </figure>
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/saemangeum-infra/images/fig04.png" alt="컬러 복원을 통한 정합 정성 검증" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">컬러 복원을 통한 정합 정성 검증</figcaption>
-            </figure>
-          </div>
-
-
+      <div class="role">
+        <h3><span class="num">01</span>체커보드 기반 타겟 캘리브레이션 데이터 취득</h3>
+        <ul class="bullets">
+          <li>대형 화물차량에 설치된 센서 특성상 높고 넓은 화각으로 주변 환경 데이터를 취득</li>
+          <li>ChArUco 패턴판을 이용하여 캘리브레이션 타겟 인식률 향상</li>
+        </ul>
+        <div class="figs">
+          <figure class="figure"><img loading="lazy" src="images/fig05.jpg" alt="ChArUco 타겟 보드를 이용한 캘리브레이션 데이터 취득"><figcaption>ChArUco 타겟 보드를 들고 캘리브레이션 데이터 취득 (모니터: LiDAR / 카메라 화면)</figcaption></figure>
+          <figure class="figure"><img loading="lazy" src="images/fig03.jpg" alt="실증 차량 센서 장착 및 데이터 취득 환경"><figcaption>실증 차량 루프의 센서 장착과 데이터 취득 환경</figcaption></figure>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
-  <script>
-    document.querySelectorAll('.proj-gallery img, .pipeline-figure img').forEach(function(im){
-      im.addEventListener('click', function(){
-        var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
-      });
-    });
-  </script>
+      <div class="role">
+        <h3><span class="num">02</span>다중센서(Camera, LiDAR) 캘리브레이션 수행</h3>
+        <ul class="bullets">
+          <li>FAKRA 카메라 Intrinsic 캘리브레이션을 전, 후, 좌, 우 카메라에 대해 수행</li>
+          <li>같은 방향의 Camera–LiDAR Extrinsic은 평면 기반, LiDAR–LiDAR Extrinsic은 ICP 기반으로 진행</li>
+          <li>LiDAR–LiDAR calibration 시 overlap이 충분치 않아, 가까운 센서(left-front / front-right)끼리 캘리브레이션 후 projection하여 ICP source로 사용</li>
+          <li>Camera 간 extrinsic calibration은 overlap이 존재하지 않아 타겟 기반 캘리브레이션이 불가 → overlap이 없는 환경에서는 Visual SLAM odometry 기반 캘리브레이션을 대안으로 고안</li>
+        </ul>
+      </div>
 
-  <div class="container">
-    <footer class="site-footer">
-      <p class="powered-by">
-        .
-        <span class="float-right" aria-hidden="true">
-          <a href="#top" class="back-to-top"><span class="button_icon"><i class="fas fa-chevron-up fa-2x"></i></span></a>
-        </span>
-      </p>
-    </footer>
-  </div>
+      <div class="role">
+        <h3><span class="num">03</span>캘리브레이션 결과 및 정합 오차 검증</h3>
+        <ul class="bullets">
+          <li>모든 센서의 좌표계가 단일 좌표계로 정렬된 것을 확인</li>
+          <li><strong>정량 성과</strong> — Camera intrinsic 재투영 RMSE 0.2px 이내, Camera–LiDAR extrinsic RMSE 3mm 이내, LiDAR–LiDAR extrinsic RMSE 4mm 이내</li>
+          <li>LiDAR 포인트 클라우드의 각 포인트에 대응되는 카메라 이미지의 RGB 값을 투영하여 색상 복원으로 정합 정성 검증</li>
+        </ul>
+        <div class="figs">
+          <figure class="figure"><img loading="lazy" src="images/fig02.jpeg" alt="다중 센서 좌표계 정합 결과"><figcaption>다중 센서 좌표계 정합 결과 (전/좌/우 Camera·LiDAR를 단일 좌표계로 정렬)</figcaption></figure>
+          <figure class="figure"><img loading="lazy" src="images/fig04.png" alt="컬러 복원을 통한 정합 정성 검증"><figcaption>카메라 색상을 입힌 포인트클라우드로 정합 정성 검증</figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© SungGuk Yu</span>
+    <a href="/projects/">← all projects</a>
+  </footer>
+</div>
+<script src="/js/site.js?v=1"></script>
 </body>
 </html>

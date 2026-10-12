@@ -1,130 +1,125 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.7.0">
-  <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="Implemented PID control and the Stanley method for precise autonomous path tracking on a UGV platform.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  <link rel="stylesheet" href="/css/academic.css">
-  <title>UGV 플랫폼을 이용한 자율주행 시스템 개발 | SungGuk Yu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="SungGuk Yu">
+<meta name="description" content="Implemented PID control and the Stanley method for precise autonomous path tracking on a UGV platform.">
+<meta name="theme-color" content="#fbf8f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1c19" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="SungGuk Yu">
+<meta property="og:title" content="UGV 플랫폼을 이용한 자율주행 시스템 개발">
+<meta property="og:description" content="Implemented PID control and the Stanley method for precise autonomous path tracking on a UGV platform.">
+<meta property="og:image" content="/authors/admin/profile.jpg">
+<meta property="twitter:card" content="summary">
+<script>try { var t = localStorage.getItem("sg.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<title>UGV 플랫폼을 이용한 자율주행 시스템 개발 | SungGuk Yu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23c0391f'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <h1><a href="/">SungGuk Yu</a></h1>
+      <p class="tagline">Robotics Researcher · SLAM, Sensor Fusion, Sensor Calibration</p>
     </div>
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+    <button class="themebtn" id="themeBtn" type="button">◐ Auto</button>
+  </header>
+
+  <nav class="toolbar" aria-label="Sections">
+    <div class="seg">
+      <a href="/">Home</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/#publications">Publications</a>
+      <a href="/cv/CV_SungGukYu.pdf">CV</a>
     </div>
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-      <ul class="navbar-nav d-md-inline-flex">
-        <li class="nav-item"><a class="nav-link" href="/#about"><span>Home</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#experience"><span>Research</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects/"><span>Projects</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#awards"><span>Awards &amp; Honors</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-  <section class="home-section" style="padding: 40px 0 20px 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
+  <main>
+    <p class="back"><a href="/projects/">← Back to Projects</a></p>
+    <header class="proj-head">
+      <h1 class="proj-title">UGV 플랫폼을 이용한 자율주행 시스템 개발</h1>
+      <p class="proj-sub">UGV-platform Autonomous Driving System</p>
+      <div class="meta"><span class="grp"><span class="venue">2024</span></span><span class="grp"><span>Team Miracle · 2024 대학생 창작 모빌리티 경진대회</span></span><span class="grp"><span>Team Member</span></span></div>
+      <div class="chips"><span class="chip">UGV</span><span class="chip">Stanley Method</span><span class="chip">PID Control</span><span class="chip">LiDAR-IMU SLAM</span><span class="chip">Localization</span><span class="chip">Gazebo</span></div>
+    </header>
 
-          <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
-
-          <h1 style="margin-bottom:4px;">UGV 플랫폼을 이용한 자율주행 시스템 개발</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">UGV-platform Autonomous Driving System</h3>
-
-          <p style="color:#626567;margin-top:12px;">2024 &nbsp;|&nbsp; Team Miracle &nbsp;|&nbsp; Team Member</p>
-
-          <hr>
-
-          <p style="color:#626567;margin-top:-6px;font-size:0.92em;">프로젝트 수행 기간 2024, 참여 기간 2024, 2024 대학생 창작 모빌리티 경진대회 (Team Miracle)</p>
-
-          <h3>Overview</h3>
+    <section class="section">
+      <h2 class="section-head"><span>Overview</span></h2>
+      <div class="prose">
         <p>정밀한 자율주행 경로 추종을 위해 <strong>PID 제어</strong> 및 <strong>Stanley 기법</strong>을 구현한 UGV 자율주행 시스템을 개발하고, LiDAR–IMU 기반 SLAM을 활용하여 음영구역 주행, 배달, 주차 등의 미션을 수행하기 위해 robust localization, lane detection, path planning 알고리즘을 구축한 프로젝트입니다.</p>
         <p>LiDAR–IMU 기반 SLAM으로 GPS 음영구역에서도 견고한 위치추정을 수행하고, PID 속도/조향 제어와 Stanley 횡방향 제어를 적용해 곡선/직선 구간에서 정밀한 경로 추종을 달성하는 것을 목표로 했습니다.</p>
+      </div>
+      <div class="figs">
+        <figure class="figure"><img loading="lazy" src="images/ugv.jpg" alt="ERP42 UGV 자율주행 플랫폼"><figcaption>센서를 탑재한 ERP42 UGV 자율주행 플랫폼</figcaption></figure>
+        <figure class="figure"><img loading="lazy" src="images/gazebo.png" alt="Gazebo 시뮬레이션 ERP42 차량 모델"><figcaption>Gazebo 시뮬레이션 환경의 ERP42 차량 모델</figcaption></figure>
+      </div>
+    </section>
 
-        <div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;align-items:flex-start;">
-          <figure style="flex:1 1 320px;margin:0;text-align:center;">
-            <img src="images/ugv.jpg" alt="ERP42 UGV 자율주행 플랫폼" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
-            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">센서를 탑재한 ERP42 UGV 자율주행 플랫폼</figcaption>
-          </figure>
-          <figure style="flex:1 1 320px;margin:0;text-align:center;">
-            <img src="images/gazebo.png" alt="Gazebo 시뮬레이션 ERP42 차량 모델" style="width:100%;border:1px solid #e5e7e9;border-radius:6px;">
-            <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo 시뮬레이션 환경의 ERP42 차량 모델링</figcaption>
-          </figure>
-        </div>
+    <section class="section">
+      <h2 class="section-head"><span>Scope</span><span>참여 항목</span></h2>
+      <ul class="bullets">
+        <li>Stanley method 경로 추종</li>
+        <li>PID 제어기 설계 (종방향 속도 제어)</li>
+        <li>Global map 기반 localization</li>
+      </ul>
+    </section>
 
-          <h3>My Role</h3>
-          <p><b>01 / Stanley Method 경로 추종</b></p>
-          <ul>
+    <section class="section">
+      <h2 class="section-head"><span>My Role</span></h2>
+
+      <div class="role">
+        <h3><span class="num">01</span>Stanley Method 경로 추종</h3>
+        <ul class="bullets">
           <li>Gazebo 시뮬레이션 환경에 주행 경로(path) 구성</li>
           <li>ERP42 차량을 모델링하여 시뮬레이션 상에서 Stanley method 경로 추종 알고리즘 구현</li>
           <li>횡방향/헤딩 오차를 보정하는 Stanley 조향 제어로 경로 추종 정확도 확보</li>
-          </ul>
+        </ul>
+        <div class="figs one">
+          <figure class="figure"><img loading="lazy" src="images/image52.png" alt="Gazebo sin-curve 경로 Stanley 추종 시뮬레이션"><figcaption>Gazebo에 구성한 sin-curve 경로와 Stanley 경로 추종 시뮬레이션</figcaption></figure>
+        </div>
+      </div>
 
-        <figure style="margin:20px 0;text-align:center;">
-          <img src="images/image52.png" alt="Gazebo sin-curve 경로 Stanley 추종 결과" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
-          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">Gazebo sin-curve 경로에서의 Stanley 경로 추종 결과</figcaption>
-        </figure>
-
-          <p><b>02 / PID 제어기 설계 (종방향 속도 제어)</b></p>
-          <ul>
+      <div class="role">
+        <h3><span class="num">02</span>PID 제어기 설계 (종방향 속도 제어)</h3>
+        <ul class="bullets">
           <li>차량에 특정 입력값을 주고 직선 주행하여 속도 응답 데이터 취득</li>
           <li>EMA로 필터링 후 전달함수를 수학적으로 모델링, 근궤적(root locus) 기법으로 적합한 PID Gain 산출</li>
           <li>튜닝 우선순위 — ① 정착시간 단축, ② 안정시간 단축(정속 유지), ③ 오버슈트 감소(관성 고려해 후순위)</li>
-          </ul>
+        </ul>
+        <div class="figs one">
+          <figure class="figure"><img loading="lazy" src="images/pid.png" alt="PID 제어 블록 다이어그램"><figcaption>종방향 속도 제어 폐루프 블록 다이어그램 (PID 제어기 + 모델링한 차량 전달함수)</figcaption></figure>
+        </div>
+      </div>
 
-        <figure style="margin:20px 0;text-align:center;">
-          <img src="images/pid.png" alt="PID 제어 블록 다이어그램" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
-          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">전달함수 모델링 기반 종방향 속도 PID 제어 블록 다이어그램</figcaption>
-        </figure>
-
-          <p><b>03 / Localization (Global Map)</b></p>
-          <ul>
+      <div class="role">
+        <h3><span class="num">03</span>Localization (Global Map)</h3>
+        <ul class="bullets">
           <li>대회 현장을 사전에 global mapping하여 해당 맵 기반 localization 시도</li>
           <li>대회 당일 구조물 배치가 크게 변경되어 ICP 정합이 실패</li>
           <li>환경 변화에 취약한 맵 기반 접근의 한계를 확인 → Feature 기반 또는 보다 robust한 localization 기법 고안 필요</li>
-          </ul>
-
-        <figure style="margin:20px 0;text-align:center;">
-          <img src="images/image49.jpg" alt="2024 대학생 창작 모빌리티 경진대회 Team Miracle" style="width:100%;max-width:760px;border:1px solid #e5e7e9;border-radius:6px;">
-          <figcaption style="color:#888;font-size:0.85em;margin-top:6px;">2024 대학생 창작 모빌리티 경진대회 현장 (Team Miracle)</figcaption>
-        </figure>
-
-        <h3>Links</h3>
-        <p class="resources">[ <a href="https://github.com/meteor0108/Stanley_controller" target="_blank" rel="noopener">code 1 (Stanley)</a> / <a href="https://github.com/meteor0108/PID_controller" target="_blank" rel="noopener">code 2 (PID)</a> ]</p>
-
+        </ul>
+        <div class="figs one">
+          <figure class="figure"><img loading="lazy" src="images/image49.jpg" alt="2024 대학생 창작 모빌리티 경진대회 Team Miracle"><figcaption>2024 대학생 창작 모빌리티 경진대회 현장 (Team Miracle 단체 사진)</figcaption></figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container">
-    <footer class="site-footer">
-      <p class="powered-by">
-        .
-        <span class="float-right" aria-hidden="true">
-          <a href="#top" class="back-to-top"><span class="button_icon"><i class="fas fa-chevron-up fa-2x"></i></span></a>
-        </span>
-      </p>
-    </footer>
-  </div>
+    <section class="section">
+      <h2 class="section-head"><span>Links</span></h2>
+      <div class="links"><a href="https://github.com/meteor0108/Stanley_controller" target="_blank" rel="noopener">code 1 (Stanley)</a><a href="https://github.com/meteor0108/PID_controller" target="_blank" rel="noopener">code 2 (PID)</a></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© SungGuk Yu</span>
+    <a href="/projects/">← all projects</a>
+  </footer>
+</div>
+<script src="/js/site.js?v=1"></script>
 </body>
 </html>

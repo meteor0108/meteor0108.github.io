@@ -1,182 +1,133 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.7.0">
-  <meta name="author" content="SungGuk Yu">
-  <meta name="description" content="Pipeline that builds colorized 3D point-cloud maps and meshes from multi-LiDAR/camera/GNSS vehicle data (LiDAR-camera colorization, VGICP, PGO, Poisson).">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  <link rel="stylesheet" href="/css/academic.css">
-  <style>
-    .home-section{animation:none}
-    .proj-gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin:8px 0 4px 0; }
-    .proj-gallery figure { margin:0; }
-    .proj-gallery img { width:100%; height:200px; object-fit:contain; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in; }
-    .proj-gallery figcaption { font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4; }
-    .role-block { margin-bottom:6px; }
-    .role-block h4 { margin-bottom:6px; }
-    .meta-tag { display:inline-block; background:#eef1f6; color:#2962ff; border-radius:4px; padding:2px 10px; margin:2px 6px 2px 0; font-size:0.8rem; }
-    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out; }
-    .lightbox img { max-width:94%; max-height:94%; object-fit:contain; }
-  </style>
-  <title>GNSS 기반 오프라인 3D Reconstruction 개발 | SungGuk Yu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="SungGuk Yu">
+<meta name="description" content="Pipeline that builds colorized 3D point-cloud maps and meshes from multi-LiDAR/camera/GNSS vehicle data (LiDAR-camera colorization, VGICP, PGO, Poisson).">
+<meta name="theme-color" content="#fbf8f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1c19" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="SungGuk Yu">
+<meta property="og:title" content="GNSS 기반 오프라인 3D Reconstruction 개발">
+<meta property="og:description" content="Pipeline that builds colorized 3D point-cloud maps and meshes from multi-LiDAR/camera/GNSS vehicle data (LiDAR-camera colorization, VGICP, PGO, Poisson).">
+<meta property="og:image" content="/authors/admin/profile.jpg">
+<meta property="twitter:card" content="summary">
+<script>try { var t = localStorage.getItem("sg.theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<title>GNSS 기반 오프라인 3D Reconstruction 개발 | SungGuk Yu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23c0391f'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='white' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap">
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <h1><a href="/">SungGuk Yu</a></h1>
+      <p class="tagline">Robotics Researcher · SLAM, Sensor Fusion, Sensor Calibration</p>
     </div>
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">SungGuk Yu</a>
+    <button class="themebtn" id="themeBtn" type="button">◐ Auto</button>
+  </header>
+
+  <nav class="toolbar" aria-label="Sections">
+    <div class="seg">
+      <a href="/">Home</a>
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/#publications">Publications</a>
+      <a href="/cv/CV_SungGukYu.pdf">CV</a>
     </div>
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
-      <ul class="navbar-nav d-md-inline-flex">
-        <li class="nav-item"><a class="nav-link" href="/#about"><span>Home</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#experience"><span>Research</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/projects/"><span>Projects</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/#awards"><span>Awards &amp; Honors</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-  <section class="home-section" style="padding: 40px 0 20px 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
+  <main>
+    <p class="back"><a href="/projects/">← Back to Projects</a></p>
+    <header class="proj-head">
+      <h1 class="proj-title">GNSS 기반 오프라인 3D Reconstruction 개발</h1>
+      <p class="proj-sub">GNSS-based Offline Colored 3D Reconstruction</p>
+      <div class="meta"><span class="grp"><span class="venue">2025</span></span><span class="grp"><span>Personal Project</span></span></div>
+      <div class="chips"><span class="chip">3D Reconstruction</span><span class="chip">GNSS</span><span class="chip">Multi-LiDAR</span><span class="chip">Colorization</span><span class="chip">VGICP</span><span class="chip">PGO</span></div>
+    </header>
 
-          <p style="margin-bottom:8px;"><a href="/projects/">&larr; Back to Projects</a></p>
-
-          <h1 style="margin-bottom:4px;">GNSS 기반 오프라인 3D Reconstruction 개발</h1>
-          <h3 style="color:#626567;font-weight:400;margin-top:0;">GNSS-based Offline Colored 3D Reconstruction</h3>
-
-          <p style="color:#626567;margin-top:12px;">2025, Personal Project</p>
-          <p style="margin:10px 0 18px 0;"><span class="meta-tag">3D Reconstruction</span> <span class="meta-tag">GNSS</span> <span class="meta-tag">Multi-LiDAR</span> <span class="meta-tag">Colorization</span> <span class="meta-tag">VGICP</span> <span class="meta-tag">PGO</span></p>
-
-          <hr>
-
-          <h3>연구 개요 / Overview</h3>
+    <section class="section">
+      <h2 class="section-head"><span>Overview</span></h2>
+      <div class="prose">
         <p>본 연구는 다중 LiDAR(Ouster×3), 카메라(Blackfly), GNSS 센서를 탑재한 차량으로 수집한 rosbag 데이터를 입력받아, 컬러라이즈된 3D 포인트클라우드 맵과 메쉬를 생성하는 파이프라인을 구축하는 것을 목적으로 한다.</p>
         <p>LiDAR 포인트에 카메라 색상을 투영하고 GNSS 궤적으로 글로벌 좌표계에 정합한 뒤, VGICP/PGO로 정밀도를 높이고 NKSR/Poisson으로 표면을 재구성한다. 전체 과정은 rosbag 추출, 검증 → 궤적 시각화 → 컬러라이즈 → 맵 병합, 메쉬화의 4단계로 모듈화되어 있다.</p>
+      </div>
+      <div class="figs one">
+        <figure class="figure"><img loading="lazy" src="images/fig03.png" alt="4단계 처리 파이프라인"><figcaption>4단계 처리 파이프라인 (추출·검증 → 캘리브레이션·궤적 → 컬러라이즈 → 전역 병합·메쉬)</figcaption></figure>
+      </div>
+    </section>
 
-          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
-            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig03.png" alt="파이프라인" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">파이프라인</figcaption>
-          </figure>
+    <section class="section">
+      <h2 class="section-head"><span>Scope</span><span>참여 연구 항목</span></h2>
+      <ul class="bullets">
+        <li>LiDAR–Camera colorization</li>
+        <li>GNSS/VGICP 기반 로컬 정합</li>
+        <li>PGO 글로벌 정합</li>
+        <li>글로벌 맵 병합 및 메쉬 재구성</li>
+      </ul>
+    </section>
 
-          <h3>참여 연구 항목</h3>
-          <ul>
-          <li>LiDAR–Camera colorization</li>
-          <li>GNSS/VGICP 기반 로컬 정합</li>
-          <li>PGO 글로벌 정합</li>
-          <li>글로벌 맵 병합 및 메쉬 재구성</li>
-          </ul>
+    <section class="section">
+      <h2 class="section-head"><span>My Role</span></h2>
 
-          <h3>My Role</h3>
-
-        <div class="role-block">
-          <h4>01. 멀티센서 캘리브레이션</h4>
-          <ul>
-            <li>Camera–LiDAR extrinsic 캘리브레이션 후 투영 오버레이로 정합 검증</li>
-            <li>3대 LiDAR 간(LiDAR–LiDAR) 외부 캘리브레이션으로 좌표계 통합</li>
-            <li>LiDAR–IMU 캘리브레이션으로 모션 보정(deskew) 기반 마련</li>
-          </ul>
-        </div>
-
-          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig08.png" alt="Lidar - camera extrinsic calibration result" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Lidar - camera extrinsic calibration result</figcaption>
-            </figure>
-            <figure class="pipeline-figure" style="flex:1 1 300px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig05.png" alt="LiDAR Merge result" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">LiDAR Merge result</figcaption>
-            </figure>
-          </div>
-
-        <div class="role-block">
-          <h4>02. Local 정합 (GNSS/VGICP 기반)</h4>
-          <ul>
-            <li>GNSS 항법 데이터로 초기 궤적(trajectory init) 생성</li>
-            <li>고정밀 GNSS(NovAtel CPT7)의 odometry를 초기값으로 사용해도 정밀 mapping이 가능할 것으로 판단했으나, 산간지역의 RTK 음영/오차 등으로 정확도 부족</li>
-            <li>ICP 계열 알고리즘 도입 — 단순 ICP는 sparse/noisy 환경에서 local minima에 취약해, voxel 분포 기반 VGICP를 활용하여 local 정합 수행</li>
-            <li>프레임 간 정밀 정합으로 누적 오차 최소화</li>
-          </ul>
-        </div>
-
-          <div style="display:flex; flex-wrap:wrap; gap:18px; margin:18px 0;">
-            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig02.png" alt="Initial alignment using odom only" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Initial alignment using odom only</figcaption>
-            </figure>
-            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig06.png" alt="VGICP alignment results" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">VGICP alignment results</figcaption>
-            </figure>
-            <figure class="pipeline-figure" style="flex:1 1 260px; margin:0; text-align:center;">
-              <img loading="lazy" src="/projects/gnss-offline-slam/images/fig07.png" alt="Results of Poisson surface reconstruction" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-              <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Results of Poisson surface reconstruction</figcaption>
-            </figure>
-          </div>
-
-        <div class="role-block">
-          <h4>03. Global 정합 (Pose Graph Optimization)</h4>
-          <ul>
-            <li>Pose Graph Optimization(PGO)으로 global 정합 일관성 최적화</li>
-            <li>UTM/Radius 기반 전역 맵 자동 병합으로 대규모 맵 구성</li>
-            <li>컬러라이즈 후 Poisson 표면 복원으로 메쉬 생성</li>
-            <li><strong>정량 성과</strong> — 14km × 10km 대규모 구간 컬러 3D 복원</li>
-          </ul>
-        </div>
-
-          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
-            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig04.png" alt="Pose Graph Optimization" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">Pose Graph Optimization</figcaption>
-          </figure>
-
-          <figure class="pipeline-figure" style="margin:18px 0; text-align:center;">
-            <img loading="lazy" src="/projects/gnss-offline-slam/images/fig01.png" alt="GNSS 궤적 (대규모 주행 구간, 약 14km)" style="max-width:100%; height:auto; background:#f5f6f8; border:1px solid #e6e8ec; border-radius:6px; cursor:zoom-in;">
-            <figcaption style="font-size:0.8rem; color:#626567; margin-top:6px; line-height:1.4;">GNSS 궤적 (대규모 주행 구간, 약 14km)</figcaption>
-          </figure>
-
-        <h3>Links</h3>
-        <p class="resources">[ <a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a> ]</p>
-
+      <div class="role">
+        <h3><span class="num">01</span>멀티센서 캘리브레이션</h3>
+        <ul class="bullets">
+          <li>Camera–LiDAR extrinsic 캘리브레이션 후 투영 오버레이로 정합 검증</li>
+          <li>3대 LiDAR 간(LiDAR–LiDAR) 외부 캘리브레이션으로 좌표계 통합</li>
+          <li>LiDAR–IMU 캘리브레이션으로 모션 보정(deskew) 기반 마련</li>
+        </ul>
+        <div class="figs">
+          <figure class="figure"><img loading="lazy" src="images/fig08.png" alt="Camera–LiDAR extrinsic 캘리브레이션 결과"><figcaption>Camera–LiDAR extrinsic 결과: 카메라 영상 위 LiDAR 포인트 투영 오버레이</figcaption></figure>
+          <figure class="figure"><img loading="lazy" src="images/fig05.png" alt="3대 LiDAR 좌표계 통합 확인"><figcaption>3대 LiDAR 좌표계 통합 확인 (LiDAR별 색 구분)</figcaption></figure>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img src="" alt=""></div>
-  <script>
-    document.querySelectorAll('.proj-gallery img, .pipeline-figure img').forEach(function(im){
-      im.addEventListener('click', function(){
-        var lb=document.getElementById('lightbox'); lb.querySelector('img').src=this.src; lb.style.display='flex';
-      });
-    });
-  </script>
+      <div class="role">
+        <h3><span class="num">02</span>Local 정합 (GNSS/VGICP 기반)</h3>
+        <ul class="bullets">
+          <li>GNSS 항법 데이터로 초기 궤적(trajectory init) 생성</li>
+          <li>고정밀 GNSS(NovAtel CPT7)의 odometry를 초기값으로 사용해도 정밀 mapping이 가능할 것으로 판단했으나, 산간지역의 RTK 음영/오차 등으로 정확도 부족</li>
+          <li>ICP 계열 알고리즘 도입 — 단순 ICP는 sparse/noisy 환경에서 local minima에 취약해, voxel 분포 기반 VGICP를 활용하여 local 정합 수행</li>
+          <li>프레임 간 정밀 정합으로 누적 오차 최소화</li>
+        </ul>
+        <div class="figs">
+          <figure class="figure"><img loading="lazy" src="images/fig02.png" alt="GNSS odometry만으로 정합한 초기 맵"><figcaption>GNSS odometry만으로 정합한 초기 컬러 맵 (좌표축은 프레임별 pose)</figcaption></figure>
+          <figure class="figure"><img loading="lazy" src="images/fig06.png" alt="VGICP 정합 결과"><figcaption>VGICP 정합 후 컬러 포인트클라우드 맵</figcaption></figure>
+        </div>
+      </div>
 
-  <div class="container">
-    <footer class="site-footer">
-      <p class="powered-by">
-        .
-        <span class="float-right" aria-hidden="true">
-          <a href="#top" class="back-to-top"><span class="button_icon"><i class="fas fa-chevron-up fa-2x"></i></span></a>
-        </span>
-      </p>
-    </footer>
-  </div>
+      <div class="role">
+        <h3><span class="num">03</span>Global 정합 (Pose Graph Optimization)</h3>
+        <ul class="bullets">
+          <li>Pose Graph Optimization(PGO)으로 global 정합 일관성 최적화</li>
+          <li>UTM/Radius 기반 전역 맵 자동 병합으로 대규모 맵 구성</li>
+          <li>컬러라이즈 후 Poisson 표면 복원으로 메쉬 생성</li>
+          <li><strong>정량 성과</strong> — 14km × 10km 대규모 구간 컬러 3D 복원</li>
+        </ul>
+        <div class="figs one">
+          <figure class="figure"><img loading="lazy" src="images/fig04.png" alt="Pose Graph Optimization 수식 구성"><figcaption>PGO 구성: GNSS unary factor와 odometry binary factor로 pose를 최적화</figcaption></figure>
+        </div>
+        <div class="figs">
+          <figure class="figure"><img loading="lazy" src="images/fig01.png" alt="전역 맵 병합 결과"><figcaption>전역 맵 병합 결과 (14km × 10km 구간, 노란 박스는 병합 단위 영역)</figcaption></figure>
+          <figure class="figure"><img loading="lazy" src="images/fig07.png" alt="Poisson 표면 복원 메쉬"><figcaption>Poisson 표면 복원으로 생성한 컬러 메쉬</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-head"><span>Links</span></h2>
+      <div class="links"><a href="https://github.com/meteor0108/colorized-3d-mapping" target="_blank" rel="noopener">code</a></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© SungGuk Yu</span>
+    <a href="/projects/">← all projects</a>
+  </footer>
+</div>
+<script src="/js/site.js?v=1"></script>
 </body>
 </html>
